@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Auk&apos;s blog</title>
-    <updated>2019-11-21T06:23:42.703Z</updated>
+    <updated>2019-11-21T06:33:37.078Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
@@ -10,6 +10,93 @@
     <logo>https://machangxin.github.io/images/avatar.png</logo>
     <icon>https://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Auk&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[sdut OJ 3668 简单的代码生成程序]]></title>
+        <id>https://machangxin.github.io/post/sdut-oj-3668-jian-dan-de-dai-ma-sheng-cheng-cheng-xu</id>
+        <link href="https://machangxin.github.io/post/sdut-oj-3668-jian-dan-de-dai-ma-sheng-cheng-cheng-xu">
+        </link>
+        <updated>2019-11-21T06:33:05.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>题目描述</strong><br>
+通过三地址代码序列生成计算机的目标代码,在生成算法中,对寄存器的使用顺序为:寄存器中存有 &gt; 空寄存器 &gt; 内存中存有 &gt; 以后不再使用 &gt; 最远距离使用<br>
+<strong>输入</strong><br>
+单组输入,给定输出的三地址代码的个数和寄存器的个数.所有的变量为大写字母,寄存器的数量不超过9<br>
+<strong>输出</strong><br>
+参照示例格式输出,不需要将最后的寄存器中的值写回内存不再使用变量不用写回内存<br>
+<strong>样例输入</strong><br>
+4 2<br>
+T:=A-B<br>
+U:=A-C<br>
+V:=T+U<br>
+W:=V+U<br>
+<strong>样例输出</strong><br>
+LD R0, A<br>
+SUB R0, B<br>
+LD R1, A<br>
+SUB R1, C<br>
+ADD R0, R1<br>
+ADD R0, R1</p>
+<pre><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MAXN = 10;
+int n,m;
+string s[110];
+char R[MAXN];//存寄存器中的变量
+int cntm;//已用寄存器个数
+int is_inR(char c){//判断是否在寄存器中，在的话返回编号，不在返回-1
+    for(int i = 0; i &lt; m; ++i)if(R[i] == c)return i;
+    return -1;
+}
+
+int get_uselast(int pos,char c){
+    for(int i = pos; i &lt; n; ++i)
+        if(s[i][3] == c || s[i][5] == c)return i;//返回最近使用c寄存器的语句编号
+    return n;
+}
+
+int get_pos(int pos){//申请寄存器
+    if(cntm &lt; m)return cntm++;//有空寄存器，直接返回空的寄存器
+    int ans = -1,mm = -1;
+    for(int i = 0; i &lt; m; ++i){
+        int ne = get_uselast(pos,R[i]);
+        if(ne &gt; mm)mm = ne,ans = i;//找到最远的
+    }
+    return ans;
+}
+
+void print_operator(char c){//输出运算符
+    if(c == '+')printf(&quot;ADD&quot;);
+    else if(c == '-')printf(&quot;SUB&quot;);
+    else if(c == '*')printf(&quot;MUL&quot;);
+    else if(c == '\\')printf(&quot;DIV&quot;);
+}
+
+void print_right(char c){
+    int pos = is_inR(c);//判断在不在寄存器中
+    if(pos != -1)printf(&quot;R%d\n&quot;,pos);//在的话输出寄存器位置
+    else printf(&quot;%c\n&quot;,c);//不在的话直接输出即可
+}
+
+int main(){
+    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
+    cntm = 0;//已用寄存器个数
+    for(int i = 0; i &lt; n; ++i)cin&gt;&gt;s[i];
+    for(int i = 0; i &lt; n; ++i){
+        int pos = is_inR(s[i][3]);//判断s[i][3]在不在寄存器中
+        if(pos == -1){//不在寄存器中
+            pos = get_pos(i);//申请寄存器
+            if(R[pos] &amp;&amp; get_uselast(i,R[pos]) &lt; n)printf(&quot;ST R%d, %c\n&quot;,pos,R[pos]);//如果寄存器被占用，将寄存器之前的变量转移至内存
+            printf(&quot;LD R%d, %c\n&quot;,pos,s[i][3]);//将s[i][3]转入寄存器
+        }
+        print_operator(s[i][4]);//输出运算符
+        printf(&quot; R%d, &quot;,pos);//输出该变量在寄存器位置
+        print_right(s[i][5]);//输出运算符右侧变量
+        R[pos] = s[i][0];//将寄存器给s[i][0]
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P1106 删数问题]]></title>
         <id>https://machangxin.github.io/post/luo-gu-p1106-shan-shu-wen-ti</id>
