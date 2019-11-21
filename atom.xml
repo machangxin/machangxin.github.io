@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Auk&apos;s blog</title>
-    <updated>2019-10-31T14:30:07.798Z</updated>
+    <updated>2019-11-21T01:44:13.626Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
@@ -11,12 +11,39 @@
     <icon>https://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Auk&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[啊啊啊]]></title>
-        <id>https://machangxin.github.io/post/a-a-a</id>
-        <link href="https://machangxin.github.io/post/a-a-a">
+        <title type="html"><![CDATA[洛谷 P1106 删数问题]]></title>
+        <id>https://machangxin.github.io/post/luo-gu-p1106-shan-shu-wen-ti</id>
+        <link href="https://machangxin.github.io/post/luo-gu-p1106-shan-shu-wen-ti">
         </link>
-        <updated>2019-10-29T09:01:27.000Z</updated>
-        <content type="html"><![CDATA[<p>阿斯达是的撒</p>
+        <updated>2019-11-21T01:40:24.000Z</updated>
+        <content type="html"><![CDATA[<p>题目描述<br>
+键盘输入一个高精度的正整数N（不超过250位） ，去掉其中任意k个数字后剩下的数字按原左右次序将组成一个新的正整数。编程对给定的N和k，寻找一种方案使得剩下的数字组成的新数最小。</p>
+<p>输入格式<br>
+n (高精度的正整数) k(需要删除的数字个数)</p>
+<p>输出格式<br>
+最后剩下的最小数。</p>
+<p>输入<br>
+175438<br>
+4<br>
+输出<br>
+13</p>
+<p>#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理<br>
+#include&lt;bits/stdc++.h&gt;<br>
+using namespace std;<br>
+int main(){<br>
+string n;<br>
+int k;<br>
+cin&gt;&gt;n&gt;&gt;k;<br>
+int m=0;<br>
+for(int i=0; i&lt;n.length(); i++)<br>
+if(n[i]&gt;n[i+1]&amp;&amp;m&lt;k){<br>
+n.erase(i,1);<br>
+m++;<br>
+i=-1;<br>
+}<br>
+while(n[0]=='0')n.erase(0,1);<br>
+n.length()!=0? cout&lt;&lt;n.substr(0,n.length()-(k-m))&lt;&lt;endl:cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;<br>
+}</p>
 ]]></content>
     </entry>
     <entry>
