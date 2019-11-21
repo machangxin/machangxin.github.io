@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Auk&apos;s blog</title>
-    <updated>2019-11-21T01:45:55.540Z</updated>
+    <updated>2019-11-21T06:23:42.703Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
@@ -16,34 +16,36 @@
         <link href="https://machangxin.github.io/post/luo-gu-p1106-shan-shu-wen-ti">
         </link>
         <updated>2019-11-21T01:40:24.000Z</updated>
-        <content type="html"><![CDATA[<p>题目描述<br>
+        <content type="html"><![CDATA[<p><strong>题目描述</strong><br>
 键盘输入一个高精度的正整数N（不超过250位） ，去掉其中任意k个数字后剩下的数字按原左右次序将组成一个新的正整数。编程对给定的N和k，寻找一种方案使得剩下的数字组成的新数最小。</p>
-<p>输入格式<br>
+<p><strong>输入格式</strong><br>
 n (高精度的正整数) k(需要删除的数字个数)</p>
-<p>输出格式<br>
+<p><strong>输出格式</strong><br>
 最后剩下的最小数。</p>
-<p>输入<br>
+<p><strong>输入</strong><br>
 175438<br>
 4<br>
-输出<br>
+<strong>输出</strong><br>
 13</p>
-<p>#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理<br>
-#include&lt;bits/stdc++.h&gt;<br>
-using namespace std;<br>
-int main(){<br>
-string n;<br>
-int k;<br>
-cin&gt;&gt;n&gt;&gt;k;<br>
-int m=0;<br>
-for(int i=0; i&lt;n.length(); i++)<br>
-if(n[i]&gt;n[i+1]&amp;&amp;m&lt;k){<br>
-n.erase(i,1);<br>
-m++;<br>
-i=-1;<br>
-}<br>
-while(n[0]=='0')n.erase(0,1);<br>
-n.length()!=0? cout&lt;&lt;n.substr(0,n.length()-(k-m))&lt;&lt;endl:cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;<br>
-}</p>
+<hr>
+<pre><code>#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理
+include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main(){
+    string n;
+    int k;
+    cin&gt;&gt;n&gt;&gt;k;
+    int m=0;
+    for(int i=0; i&lt;n.length(); i++)
+        if(n[i]&gt;n[i+1]&amp;&amp;m&lt;k){
+            n.erase(i,1);
+            m++;
+            i=-1;
+        }
+    while(n[0]=='0')n.erase(0,1);
+    n.length()!=0? cout&lt;&lt;n.substr(0,n.length()-(k-m))&lt;&lt;endl:cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;
+}
+</code></pre>
 ]]></content>
     </entry>
 </feed>

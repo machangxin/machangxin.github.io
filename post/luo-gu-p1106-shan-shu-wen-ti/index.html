@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1574300748964">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1574317420811">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://machangxin.github.io">
-        <img src="https://machangxin.github.io/images/avatar.png?v=1574300748964" class="site-logo">
+        <img src="https://machangxin.github.io/images/avatar.png?v=1574317420811" class="site-logo">
         <h1 class="site-title">Auk&#39;s blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -96,34 +96,36 @@
             <div class="post-date">2019-11-21</div>
             
             <div class="post-content">
-              <p>题目描述<br>
+              <p><strong>题目描述</strong><br>
 键盘输入一个高精度的正整数N（不超过250位） ，去掉其中任意k个数字后剩下的数字按原左右次序将组成一个新的正整数。编程对给定的N和k，寻找一种方案使得剩下的数字组成的新数最小。</p>
-<p>输入格式<br>
+<p><strong>输入格式</strong><br>
 n (高精度的正整数) k(需要删除的数字个数)</p>
-<p>输出格式<br>
+<p><strong>输出格式</strong><br>
 最后剩下的最小数。</p>
-<p>输入<br>
+<p><strong>输入</strong><br>
 175438<br>
 4<br>
-输出<br>
+<strong>输出</strong><br>
 13</p>
-<p>#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理<br>
-#include&lt;bits/stdc++.h&gt;<br>
-using namespace std;<br>
-int main(){<br>
-string n;<br>
-int k;<br>
-cin&gt;&gt;n&gt;&gt;k;<br>
-int m=0;<br>
-for(int i=0; i&lt;n.length(); i++)<br>
-if(n[i]&gt;n[i+1]&amp;&amp;m&lt;k){<br>
-n.erase(i,1);<br>
-m++;<br>
-i=-1;<br>
-}<br>
-while(n[0]=='0')n.erase(0,1);<br>
-n.length()!=0? cout&lt;&lt;n.substr(0,n.length()-(k-m))&lt;&lt;endl:cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;<br>
-}</p>
+<hr>
+<pre><code>#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理
+include&lt;bits/stdc++.h&gt;
+using namespace std;
+int main(){
+    string n;
+    int k;
+    cin&gt;&gt;n&gt;&gt;k;
+    int m=0;
+    for(int i=0; i&lt;n.length(); i++)
+        if(n[i]&gt;n[i+1]&amp;&amp;m&lt;k){
+            n.erase(i,1);
+            m++;
+            i=-1;
+        }
+    while(n[0]=='0')n.erase(0,1);
+    n.length()!=0? cout&lt;&lt;n.substr(0,n.length()-(k-m))&lt;&lt;endl:cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;
+}
+</code></pre>
 
             </div>
             
