@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://machangxin.github.io</id>
+    <id>http://localhost:4000</id>
     <title>Auk&apos;s blog</title>
-    <updated>2019-11-21T06:35:43.220Z</updated>
+    <updated>2019-11-22T05:49:55.491Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://machangxin.github.io"/>
-    <link rel="self" href="https://machangxin.github.io/atom.xml"/>
+    <link rel="alternate" href="http://localhost:4000"/>
+    <link rel="self" href="http://localhost:4000/atom.xml"/>
     <subtitle>我是一只小小鸟</subtitle>
-    <logo>https://machangxin.github.io/images/avatar.png</logo>
-    <icon>https://machangxin.github.io/favicon.ico</icon>
+    <logo>http://localhost:4000/images/avatar.png</logo>
+    <icon>http://localhost:4000/favicon.ico</icon>
     <rights>All rights reserved 2019, Auk&apos;s blog</rights>
     <entry>
+        <title type="html"><![CDATA[杂七杂八小知识]]></title>
+        <id>http://localhost:4000/post/za-qi-za-ba-xiao-zhi-shi</id>
+        <link href="http://localhost:4000/post/za-qi-za-ba-xiao-zhi-shi">
+        </link>
+        <updated>2019-11-22T05:49:17.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符，</code></pre>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[sdut OJ 3668 简单的代码生成程序]]></title>
-        <id>https://machangxin.github.io/post/sdut-oj-3668-jian-dan-de-dai-ma-sheng-cheng-cheng-xu</id>
-        <link href="https://machangxin.github.io/post/sdut-oj-3668-jian-dan-de-dai-ma-sheng-cheng-cheng-xu">
+        <id>http://localhost:4000/post/sdut-oj-3668-jian-dan-de-dai-ma-sheng-cheng-cheng-xu</id>
+        <link href="http://localhost:4000/post/sdut-oj-3668-jian-dan-de-dai-ma-sheng-cheng-cheng-xu">
         </link>
         <updated>2019-11-21T06:33:05.000Z</updated>
         <content type="html"><![CDATA[<p><strong>题目描述</strong><br>
@@ -99,8 +108,8 @@ int main(){
     </entry>
     <entry>
         <title type="html"><![CDATA[洛谷 P1106 删数问题]]></title>
-        <id>https://machangxin.github.io/post/luo-gu-p1106-shan-shu-wen-ti</id>
-        <link href="https://machangxin.github.io/post/luo-gu-p1106-shan-shu-wen-ti">
+        <id>http://localhost:4000/post/luo-gu-p1106-shan-shu-wen-ti</id>
+        <link href="http://localhost:4000/post/luo-gu-p1106-shan-shu-wen-ti">
         </link>
         <updated>2019-11-21T01:40:24.000Z</updated>
         <content type="html"><![CDATA[<p><strong>题目描述</strong><br>
