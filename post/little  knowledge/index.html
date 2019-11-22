@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | Auk&#39;s blog</title>
+<title>杂七杂八小知识 | Auk&#39;s blog</title>
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,6 +13,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -95,14 +101,44 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">杂七杂八小知识</h2>
+            <div class="post-date">2019-11-22</div>
             
-              <a class="tag" href="https://machangxin.github.io/tag/KnUv2qrsa">杂七杂八</a>
+            <div class="post-content">
+              <p>next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符，</p>
+
+            </div>
             
-              <a class="tag" href="https://machangxin.github.io/tag/v9yI8FoC7">刷题</a>
+              <div class="tag-container">
+                
+                  <a href="https://machangxin.github.io/tag/KnUv2qrsa" class="tag">
+                    杂七杂八
+                  </a>
+                
+              </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://machangxin.github.io/post/sdut OJ 3668 ">
+                  <h3 class="post-title">
+                    sdut OJ 3668 简单的代码生成程序
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
+
         </div>
       </div>
     </div>
@@ -123,6 +159,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39799e8a1db05650a9a6',
+        clientSecret: '7f09f55bdb26bd03e9aa2a08c1485eaa84f35d1d',
+        repo: 'https://machangxin.github.io',
+        owner: 'machangxin',
+        admin: ['machangxin'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
