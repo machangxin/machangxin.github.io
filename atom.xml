@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Auk&apos;s blog</title>
-    <updated>2019-11-22T13:26:15.578Z</updated>
+    <updated>2019-11-23T06:44:54.602Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
@@ -17,6 +17,11 @@
         </link>
         <updated>2019-11-22T05:49:17.000Z</updated>
         <content type="html"><![CDATA[<p>next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符，</p>
+<p><strong>python</strong><br>
+用input输入文件地址时，字符串首部可能出现\u202A，解决方法：</p>
+<pre><code>target_name =input(&quot;请输入txt创建地址:\n(例:C:\\Users\马长鑫\Desktop)&quot;)#目标地址
+target_name = target_name.replace(u'\u202A', '')
+</code></pre>
 ]]></content>
     </entry>
     <entry>
