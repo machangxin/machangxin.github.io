@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>sdut OJ 3668 简单的代码生成程序 | Auk&#39;s blog</title>
+<title>翻译布尔表达式 | Auk&#39;s blog</title>
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1574491482166">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1574910652241">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
 
@@ -45,7 +45,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://machangxin.github.io">
-        <img src="https://machangxin.github.io/images/avatar.png?v=1574491482166" class="site-logo">
+        <img src="https://machangxin.github.io/images/avatar.png?v=1574910652241" class="site-logo">
         <h1 class="site-title">Auk&#39;s blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -111,87 +111,103 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">sdut OJ 3668 简单的代码生成程序</h2>
-            <div class="post-date">2019-11-21</div>
+            <h2 class="post-title">翻译布尔表达式</h2>
+            <div class="post-date">2019-11-28</div>
             
             <div class="post-content">
-              <p><strong>题目描述</strong><br>
-通过三地址代码序列生成计算机的目标代码,在生成算法中,对寄存器的使用顺序为:寄存器中存有 &gt; 空寄存器 &gt; 内存中存有 &gt; 以后不再使用 &gt; 最远距离使用<br>
-<strong>输入</strong><br>
-单组输入,给定输出的三地址代码的个数和寄存器的个数.所有的变量为大写字母,寄存器的数量不超过9<br>
-<strong>输出</strong><br>
-参照示例格式输出,不需要将最后的寄存器中的值写回内存不再使用变量不用写回内存<br>
-<strong>样例输入</strong><br>
-4 2<br>
-T:=A-B<br>
-U:=A-C<br>
-V:=T+U<br>
-W:=V+U<br>
-<strong>样例输出</strong><br>
-LD R0, A<br>
-SUB R0, B<br>
-LD R1, A<br>
-SUB R1, C<br>
-ADD R0, R1<br>
-ADD R0, R1</p>
-<pre><code>#include &lt;bits/stdc++.h&gt;
+              <p>大家都学过了布尔表达式的翻译，其中有一个拉链－回填技术，这次我们就练习这个技术。<br>
+注意，在布尔表达式中，“并且”运算的优先级是要高于“或者”运算的。</p>
+<p><strong>输入格式:</strong><br>
+输入为一行字符串，例如： a &lt; b or c &lt; d and e &lt; f<br>
+每个符号都用空格间隔。<br>
+其中逻辑运算符包含 and 和 or ， 关系运算符包含 &lt; 、&gt; 、&lt;= 、 &gt;= 、== 、 != 。</p>
+<p><strong>输出格式:</strong><br>
+假链跳到０，真链跳到１，表达式序号从100开始排。</p>
+<p><strong>输入样例1:</strong><br>
+a &lt; b or c &lt; d and e &lt; f<br>
+<strong>输出样例1:</strong><br>
+100(j&lt;,a,b,1)<br>
+101(j,<em>,</em>,102)<br>
+102(j&lt;,c,d,104)<br>
+103(j,<em>,</em>,0)<br>
+104(j&lt;,e,f,100)<br>
+105(j,<em>,</em>,103)<br>
+<strong>输入样例2:</strong><br>
+a &lt; b and c &gt; d or e &gt; f<br>
+<strong>输出样例2:</strong><br>
+100(j&lt;,a,b,102)<br>
+101(j,<em>,</em>,104)<br>
+102(j&gt;,c,d,1)<br>
+103(j,<em>,</em>,101)<br>
+104(j&gt;,e,f,102)<br>
+105(j,<em>,</em>,0)</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
 using namespace std;
-const int MAXN = 10;
-int n,m;
-string s[110];
-char R[MAXN];//存寄存器中的变量
-int cntm;//已用寄存器个数
-int is_inR(char c){//判断是否在寄存器中，在的话返回编号，不在返回-1
-    for(int i = 0; i &lt; m; ++i)if(R[i] == c)return i;
-    return -1;
-}
-
-int get_uselast(int pos,char c){
-    for(int i = pos; i &lt; n; ++i)
-        if(s[i][3] == c || s[i][5] == c)return i;//返回最近使用c寄存器的语句编号
-    return n;
-}
-
-int get_pos(int pos){//申请寄存器
-    if(cntm &lt; m)return cntm++;//有空寄存器，直接返回空的寄存器
-    int ans = -1,mm = -1;
-    for(int i = 0; i &lt; m; ++i){
-        int ne = get_uselast(pos,R[i]);
-        if(ne &gt; mm)mm = ne,ans = i;//找到最远的
+#define pr ans[1].c_str(),ans[0].c_str(),ans[2].c_str()
+int main()
+{
+    string x,xx,s[1000];
+    getline(cin,xx);
+    xx+=&quot; end&quot;;
+    int h=1,hh,ix=100,num=0,ff[1000],t=1,f=0,f2=0;
+    vector&lt;string&gt;ans;
+    bool flag=0;
+    stringstream ss(xx);
+    while(ss&gt;&gt;x)
+    {
+        s[++num]=x;
     }
-    return ans;
-}
+    for(int i=1; i&lt;=num; i++){
+        if(s[i]==&quot;or&quot;||s[i]==&quot;and&quot;)
+            h++;
+    }
 
-void print_operator(char c){//输出运算符
-    if(c == '+')printf(&quot;ADD&quot;);
-    else if(c == '-')printf(&quot;SUB&quot;);
-    else if(c == '*')printf(&quot;MUL&quot;);
-    else if(c == '\\')printf(&quot;DIV&quot;);
-}
-
-void print_right(char c){
-    int pos = is_inR(c);//判断在不在寄存器中
-    if(pos != -1)printf(&quot;R%d\n&quot;,pos);//在的话输出寄存器位置
-    else printf(&quot;%c\n&quot;,c);//不在的话直接输出即可
-}
-
-int main(){
-    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);
-    cntm = 0;//已用寄存器个数
-    for(int i = 0; i &lt; n; ++i)cin&gt;&gt;s[i];
-    for(int i = 0; i &lt; n; ++i){
-        int pos = is_inR(s[i][3]);//判断s[i][3]在不在寄存器中
-        if(pos == -1){//不在寄存器中
-            pos = get_pos(i);//申请寄存器
-            if(R[pos] &amp;&amp; get_uselast(i,R[pos]) &lt; n)printf(&quot;ST R%d, %c\n&quot;,pos,R[pos]);//如果寄存器被占用，将寄存器之前的变量转移至内存
-            printf(&quot;LD R%d, %c\n&quot;,pos,s[i][3]);//将s[i][3]转入寄存器
+    for(int i=num; i&gt;=1; i--)
+    {
+        if(s[i]==&quot;or&quot;)
+            flag=1,h--,hh=h;
+        else if(s[i]==&quot;and&quot;)
+        {
+            h--;
+            if(flag)
+            {
+                ff[i]=100+2*hh;
+            }
         }
-        print_operator(s[i][4]);//输出运算符
-        printf(&quot; R%d, &quot;,pos);//输出该变量在寄存器位置
-        print_right(s[i][5]);//输出运算符右侧变量
-        R[pos] = s[i][0];//将寄存器给s[i][0]
     }
-    return 0;
+    for(int i=1; i&lt;=num; i++)
+    {
+        x=s[i];
+        if(x==&quot;or&quot;)
+        {
+            printf(&quot;%d(j%s,%s,%s,%d)\n&quot;,ix,pr,t);
+            t=ix++;
+            if(!f2)
+                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,ix+1);
+            else
+                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,f2),f2=0;
+            ix++;
+            ans.clear();
+        }
+        else if(x==&quot;and&quot;)
+        {
+            printf(&quot;%d(j%s,%s,%s,%d)\n&quot;,ix,pr,ix+2);
+            ix++;
+            if(!ff[i])
+                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,f),f=ix;
+            else
+                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,!f2? ff[i]:f2),f2=ix;
+            ix++;
+            ans.clear();
+        }
+        else if(x==&quot;end&quot;)
+        {
+            printf(&quot;%d(j%s,%s,%s,%d)\n&quot;,ix++,pr,t);
+            printf(&quot;%d(j,_,_,%d)\n&quot;,ix,f);
+        }
+        else
+            ans.push_back(x);
+    }
 }
 </code></pre>
 
@@ -199,8 +215,8 @@ int main(){
             
               <div class="tag-container">
                 
-                  <a href="https://machangxin.github.io/tag/v9yI8FoC7" class="tag">
-                    刷题
+                  <a href="https://machangxin.github.io/tag/p65s-9oeF" class="tag">
+                    编译原理题解报告
                   </a>
                 
               </div>
@@ -208,9 +224,9 @@ int main(){
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题">
+                <a href="https://machangxin.github.io/post/15RsiSbeQ">
                   <h3 class="post-title">
-                    洛谷 P1106 删数问题
+                    DAG图优化
                   </h3>
                 </a>
               </div>

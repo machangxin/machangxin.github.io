@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>杂七杂八小知识 | Auk&#39;s blog</title>
+<title>表达式语法分析——递归子程序法 | Auk&#39;s blog</title>
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -111,23 +111,149 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">杂七杂八小知识</h2>
-            <div class="post-date">2019-11-22</div>
+            <h2 class="post-title">表达式语法分析——递归子程序法</h2>
+            <div class="post-date">2019-11-28</div>
             
             <div class="post-content">
-              <p>next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符，</p>
-<p><strong>python</strong><br>
-用input输入文件地址时，字符串首部可能出现\u202A，解决方法：</p>
-<pre><code>target_name =input(&quot;请输入txt创建地址:\n(例:C:\\Users\马长鑫\Desktop)&quot;)#目标地址
-target_name = target_name.replace(u'\u202A', '')
+              <p>递归子程序法是一种确定的自顶向下语法分析方法，要求文法是LL(1)文法。它的实现思想是对应文法中每个非终结符编写一个递归过程，每个过程的功能是识别由该非终结符推出的串，当某非终结符的产生式有多个候选式时能够按LL(1)形式唯一地确定选择某个候选式进行推导。请根据下面的表达式LL(1)文法，构造递归子程序，完成对表达式的语法分析。<br>
+表达式文法如下：<br>
+E→TG<br>
+G→+TG | ε<br>
+T→FS<br>
+S→<em>FS | ε<br>
+F→(E) | i<br>
+对于给定的输入串（长度不超过50个符号），请输出分析过程中用到的所有产生式，并指明该输入串是否为该文法能生成的表达式,输出共11行，前10行每行两个数据用空格隔开，表示推导时所用产生式顺序号（从0开始），最后一行是accept，表示i+i</em>i是文法能生成的合法表达式。注：其中&amp;符号代表文法中的ε符号。 例如：<br>
+i+i*i是文法能生成的一个表达式,输出格式如下：<br>
+0 E--&gt;TG<br>
+1 T--&gt;FS<br>
+2 F--&gt;i<br>
+3 S--&gt;&amp;<br>
+4 G--&gt;+TG<br>
+5 T--&gt;FS<br>
+6 F--&gt;i<br>
+7 S--&gt;*FS<br>
+8 F--&gt;i<br>
+9 S--&gt;&amp;<br>
+10 G--&gt;&amp;<br>
+accept</p>
+<p>i@i不是文法能生成的表达式，输出共5行，前5行每行两个数据用空格隔开，表示推导时所用产生式序号（从0开始），最后一行是error，表示i@i不是文法能生成的表达式。@不是合法的文法符号，输出格式举例：<br>
+0 E--&gt;TG<br>
+1 T--&gt;FS<br>
+2 F--&gt;i<br>
+3 S--&gt;&amp;<br>
+4 G--&gt;&amp;<br>
+error</p>
+<p>(i+i*i不是文法能生成的表达式，存在括号不匹配的语法错误，输出格式举例：<br>
+0 E--&gt;TG<br>
+1 T--&gt;FS<br>
+2 F--&gt;(E)<br>
+3 E--&gt;TG<br>
+4 T--&gt;FS<br>
+5 F--&gt;i<br>
+6 S--&gt;&amp;<br>
+7 G--&gt;+TG<br>
+8 T--&gt;FS<br>
+9 F--&gt;i<br>
+10 S--&gt;*FS<br>
+11 F--&gt;i<br>
+12 S--&gt;&amp;<br>
+13 G--&gt;&amp;<br>
+error<br>
+<strong>输入格式:</strong><br>
+输入数据只有一行，代表待分析的符号串，以#号结束。</p>
+<p><strong>输出格式:</strong><br>
+输出推导过程中所有的产生式，按照使用顺序给出。输出详细说明见题目描述中的例子。</p>
+<p><strong>输入样例:</strong><br>
+i+i*i#<br>
+<strong>输出样例:</strong><br>
+在这里给出相应的输出。例如：<br>
+0 E--&gt;TG<br>
+1 T--&gt;FS<br>
+2 F--&gt;i<br>
+3 S--&gt;&amp;<br>
+4 G--&gt;+TG<br>
+5 T--&gt;FS<br>
+6 F--&gt;i<br>
+7 S--&gt;*FS<br>
+8 F--&gt;i<br>
+9 S--&gt;&amp;<br>
+10 G--&gt;&amp;<br>
+accept</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int ff=0,num=0;
+string s;
+void e();
+void g();
+void t();
+void S();
+void f();
+void e()
+{
+    if(s[ff]=='i'||s[ff]=='(')
+        printf(&quot;%d E--&gt;TG\n&quot;,num++);
+    t(),g();
+}
+void t()
+{
+    if(s[ff]=='i'||s[ff]=='(')
+        printf(&quot;%d T--&gt;FS\n&quot;,num++);
+    f(),S();
+}
+void g()
+{
+    if(s[ff]=='+')
+        printf(&quot;%d G--&gt;+TG\n&quot;,num++),ff++,t(),g();
+    else
+        printf(&quot;%d G--&gt;&amp;\n&quot;,num++);
+}
+void S()
+{
+    if(s[ff]=='*')
+        printf(&quot;%d S--&gt;*FS\n&quot;,num++),ff++,f(),S();
+    else
+        printf(&quot;%d S--&gt;&amp;\n&quot;,num++);
+}
+void f()
+{
+    if(s[ff]=='(')
+    {
+        printf(&quot;%d F--&gt;(E)\n&quot;,num++),ff++;
+        e();
+        if(s[ff]==')')
+            ff++;
+        else
+            printf(&quot;error\n&quot;),exit(0);
+    }
+    else if(s[ff]=='i')
+        printf(&quot;%d F--&gt;i\n&quot;,num++),ff++;
+    else
+        printf(&quot;error\n&quot;),exit(0);
+}
+
+int main()
+{
+    cin&gt;&gt;s;
+    if(s==&quot;#&quot;)
+    {
+        printf(&quot;error\n&quot;);
+        return 0;
+    }
+    e();
+    if(s[ff]=='#')
+        printf(&quot;accept\n&quot;);
+    else
+        printf(&quot;error\n&quot;);
+}
+
 </code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://machangxin.github.io/tag/KnUv2qrsa" class="tag">
-                    杂七杂八
+                  <a href="https://machangxin.github.io/tag/p65s-9oeF" class="tag">
+                    编译原理题解报告
                   </a>
                 
               </div>
@@ -135,9 +261,9 @@ target_name = target_name.replace(u'\u202A', '')
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题">
+                <a href="https://machangxin.github.io/post/little  knowledge">
                   <h3 class="post-title">
-                    洛谷 P1106 删数问题
+                    杂七杂八小知识
                   </h3>
                 </a>
               </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Hello Gridea | Auk&#39;s blog</title>
+<title>简单的代码生成程序 | Auk&#39;s blog</title>
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -111,45 +111,100 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">Hello Gridea</h2>
-            <div class="post-date">2018-12-12</div>
-            
-              <div class="feature-container" style="background-image: url('https://machangxin.github.io/post-images/hello-gridea.png')">
-              </div>
+            <h2 class="post-title">简单的代码生成程序</h2>
+            <div class="post-date">2019-11-28</div>
             
             <div class="post-content">
-              <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+              <p>通过三地址代码序列生成计算机的目标代码,在生成算法中,对寄存器的使用顺序为:寄存器中存有 &gt; 空寄存器 &gt; 内存中存有 &gt; 以后不再使用 &gt; 最远距离使用</p>
+<p><strong>输入格式:</strong><br>
+给定输出的三地址代码的个数和寄存器的个数.所有的变量为大写字母,寄存器的数量不超过9</p>
+<p><strong>输出格式:</strong><br>
+参照示例格式输出,不需要将最后的寄存器中的值写回内存<br>
+不再使用变量不用写回内存</p>
+<p><strong>输入样例:</strong><br>
+4 2<br>
+T:=A-B<br>
+U:=A-C<br>
+V:=T+U<br>
+W:=V+U<br>
+<strong>输出样例:</strong><br>
+LD R0, A<br>
+SUB R0, B<br>
+LD R1, A<br>
+SUB R1, C<br>
+ADD R0, R1<br>
+ADD R0, R1</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int n,m,nr=0;
+string s[100];
+char r[15];
+int inr(char c){
+    for(int i=0;i&lt;m;i++)if(r[i]==c) return i;
+    return -1;
+}
+int gul(int pos,char c){
+    for(int i=pos;i&lt;=n;i++)if(s[i][3]==c||s[i][5]==c)return i;
+    return n+1;
+}
+int getr(int pos){
+    if(nr&lt;m) return nr++;
+    int ans=-1,maxx=-1;
+    for(int i=0;i&lt;m;i++){
+        int ne= gul(pos,r[i]);
+        if(ne&gt;maxx) maxx=ne,ans=i;
+    }
+    return ans;
+}
+void printop(char c){
+    if(c=='+') printf(&quot;ADD &quot;);
+    if(c=='*') printf(&quot;MUL &quot;);
+    if(c=='-') printf(&quot;SUB &quot;);
+}
+void printr(char c){
+    int pos= inr(c);
+    if(pos==-1)printf(&quot;%c\n&quot;,c);
+    else printf(&quot;R%d\n&quot;,pos);
+}
+int main(){
+    cin&gt;&gt;n&gt;&gt;m;
+    for(int i=1;i&lt;=n;i++) cin&gt;&gt;s[i];
+    for(int i=1;i&lt;=n;i++){
+        int pos = inr(s[i][3]);
+        if(pos==-1){
+            pos=getr(i);
+            if(r[pos]&amp;&amp;gul(i,r[pos])&lt;n+1)
+                printf(&quot;ST R%d, %c\n&quot;,pos,r[pos]);
+            printf(&quot;LD R%d, %c\n&quot;,pos,s[i][3]);
+            r[pos]=s[i][3];
+        }
+        printop(s[i][4]);
+        printf(&quot;R%d, &quot;,pos);
+        printr(s[i][5]);
+        r[pos]=s[i][0];
+    }
+}
+</code></pre>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://machangxin.github.io/tag/hhepuM7F6" class="tag">
-                    Gridea
+                  <a href="https://machangxin.github.io/tag/p65s-9oeF" class="tag">
+                    编译原理题解报告
                   </a>
                 
               </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://machangxin.github.io/post/d_CBRYM0E">
+                  <h3 class="post-title">
+                    翻译布尔表达式
+                  </h3>
+                </a>
+              </div>
             
 
             

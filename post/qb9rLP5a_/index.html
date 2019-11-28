@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>小C语言--词法分析程序 | Auk&#39;s blog</title>
+<meta name="description" content="我是一只小小鸟">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1574910652241">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123761131-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123761131-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://machangxin.github.io">
+        <img src="https://machangxin.github.io/images/avatar.png?v=1574910652241" class="site-logo">
+        <h1 class="site-title">Auk&#39;s blog</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+          <a class="social-link" href="https://github.com/machangxin" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      我是一只小小鸟
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">小C语言--词法分析程序</h2>
+            <div class="post-date">2019-11-28</div>
+            
+            <div class="post-content">
+              <p>小C语言文法</p>
+<p>&lt;程序&gt;→(){&lt;声明序列&gt;&lt;语句序列&gt;}<br>
+&lt;声明序列&gt;→&lt;声明序列&gt;&lt;声明语句&gt;|&lt;声明语句&gt;|&lt;空&gt;<br>
+&lt;声明语句&gt;→&lt;标识符表&gt;;<br>
+&lt;标识符表&gt;→&lt;标识符&gt;,&lt;标识符表&gt;|&lt;标识符&gt;<br>
+&lt;语句序列&gt;→&lt;语句序列&gt;&lt;语句&gt;|&lt;语句&gt;<br>
+&lt;语句&gt;→&lt; if语句&gt;|&lt; while语句&gt;|&lt; for语句&gt;|&lt;复合语句&gt;|&lt;赋值语句&gt;<br>
+&lt; if语句&gt;→&lt; if关键字&gt;(&lt;表达式&gt;)&lt;复合语句&gt;|(&lt;表达式&gt;)&lt;复合语句&gt;&lt; else关键字&gt;&lt;复合语句&gt;<br>
+&lt; while语句&gt;→&lt; while关键字&gt;(&lt;表达式&gt;)&lt;复合语句&gt;<br>
+&lt; for语句&gt;→&lt; for关键字&gt;(&lt;表达式&gt;;&lt;表达式&gt;;&lt;表达式&gt;)&lt;复合语句&gt;<br>
+&lt;复合语句&gt;→{&lt;语句序列&gt;}<br>
+&lt;赋值语句&gt;→&lt;表达式&gt;;<br>
+&lt;表达式&gt;→&lt;标识符&gt;=&lt;算数表达式&gt;|&lt;布尔表达式&gt;<br>
+&lt;布尔表达式&gt;→&lt;算数表达式&gt; |&lt;算数表达式&gt;&lt;关系运算符&gt;&lt;算数表达式&gt;<br>
+&lt;关系运算符&gt;→&gt;|&lt;|&gt;=|&lt;=|==|!=<br>
+&lt;算数表达式&gt;→&lt;算数表达式&gt;+&lt;项&gt;|&lt;算数表达式&gt;-&lt;项&gt;|&lt;项&gt;<br>
+&lt;项&gt;→&lt;项&gt;*&lt;因子&gt;|&lt;项&gt;/&lt;因子&gt;|&lt;因子&gt;<br>
+&lt;因子&gt;→&lt;标识符&gt;|&lt;无符号整数&gt;|(&lt;算数表达式&gt;)<br>
+&lt;标识符&gt;→&lt;字母&gt;|&lt;标识符&gt;&lt;字母&gt;|&lt;标识符&gt;&lt;数字&gt;<br>
+&lt;无符号整数&gt;→&lt;数字&gt;|&lt;无符号整数&gt;&lt;数字&gt;<br>
+&lt;字母&gt;→a|b|…|z|A|B|…|Z<br>
+&lt;数字&gt;→0|1|2|3|4|5|6|7|8|9<br>
+&lt; main关键字&gt;→main<br>
+&lt; if关键字&gt;→if<br>
+&lt; else关键字&gt;→else<br>
+&lt; for关键字&gt;→for<br>
+&lt; while关键字&gt;→while<br>
+&lt; int关键字&gt;→int<br>
+每行单词数不超过10个<br>
+小C语言文法如上，现在我们对小C语言写的一个源程序进行词法分析，分析出关键字、自定义标识符、整数、界符和运算符。<br>
+关键字：main if else for while int<br>
+自定义标识符：除关键字外的标识符<br>
+整数：无符号整数<br>
+界符：{ } ( ) , ;<br>
+运算符：= + - * / &lt; &lt;= &gt; &gt;= == !=<br>
+<strong>输入格式:</strong><br>
+输入一个小C语言源程序，源程序长度不超过2000个字符，保证输入合法。</p>
+<p><strong>输出格式:</strong><br>
+按照源程序中单词出现顺序输出，输出二元组形式的单词串。<br>
+(单词种类,单词值)<br>
+单词一共5个种类：<br>
+关键字：用keyword表示<br>
+自定义标识符：用identifier表示<br>
+整数：用integer表示<br>
+界符：用boundary表示<br>
+运算符：用operator表示<br>
+每种单词值用该单词的符号串表示。<br>
+<strong>输入样例:</strong></p>
+<pre><code>main() 
+{
+    int a, b;
+    if(a == 10)
+    {
+        a = b;
+    }
+}
+</code></pre>
+<p><strong>输出样例:</strong><br>
+(keyword,main)<br>
+(boundary,()<br>
+(boundary,))<br>
+(boundary,{)<br>
+(keyword,int)<br>
+(identifier,a)<br>
+(boundary,,)<br>
+(identifier,b)<br>
+(boundary,😉<br>
+(keyword,if)<br>
+(boundary,()<br>
+(identifier,a)<br>
+(operator,==)<br>
+(integer,10)<br>
+(boundary,))<br>
+(boundary,{)<br>
+(identifier,a)<br>
+(operator,=)<br>
+(identifier,b)<br>
+(boundary,😉<br>
+(boundary,})<br>
+(boundary,})</p>
+<pre><code>#include&lt;bits/stdc++.h&gt;
+using namespace std;
+map&lt;char,bool&gt;b,o;
+map&lt;string,bool&gt;key;
+void pd(string s){
+    if(s==&quot;&quot;||s==&quot; &quot;) return ;
+    if(s[0]&gt;=48&amp;&amp;s[0]&lt;=57)
+        printf(&quot;(integer,%s)\n&quot;,s.c_str());
+    else if(key[s]) printf(&quot;(keyword,%s)\n&quot;,s.c_str());
+        else printf(&quot;(identifier,%s)\n&quot;,s.c_str());
+}
+int main(){
+    char bo[]={'{','}','(',')',',',';'};
+    char op[]={'/','*','-','+','=','&lt;','&gt;','!'};
+    string k[]={&quot;main&quot;,&quot;if&quot;,&quot;else&quot;,&quot;for&quot;,&quot;while&quot;,&quot;int&quot;};
+    for(int i=0;i&lt;6;i++) b[bo[i]]=1,key[k[i]]=1;
+    for(int i=0;i&lt;8;i++) o[op[i]]=1;
+    string ss;
+    while(cin&gt;&gt;ss){
+        string s;
+        for(int i=0;i&lt;ss.length();i++){
+            if(b[ss[i]]){
+                pd(s),s=&quot;&quot;;
+                printf(&quot;(boundary,%c)\n&quot;,ss[i]);
+            }
+            else if(o[ss[i]]){
+                pd(s),s=&quot;&quot;;
+                if(i+1&lt;ss.length()&amp;&amp;ss[i+1]=='=')
+                    printf(&quot;(operator,%c%c)\n&quot;,ss[i],ss[i+1]),i++;
+                else printf(&quot;(operator,%c)\n&quot;,ss[i]);
+            }
+            else s+=ss[i];
+        }
+        pd(s);
+
+    }
+}
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://machangxin.github.io/tag/p65s-9oeF" class="tag">
+                    编译原理题解报告
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://machangxin.github.io/post/cn0cfeQNa">
+                  <h3 class="post-title">
+                    表达式语法分析——递归子程序法
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39799e8a1db05650a9a6',
+        clientSecret: '7f09f55bdb26bd03e9aa2a08c1485eaa84f35d1d',
+        repo: 'https://machangxin.github.io',
+        owner: 'machangxin',
+        admin: ['machangxin'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
