@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1578126797379">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1578135310178">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
 
@@ -45,7 +45,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://machangxin.github.io">
-        <img src="https://machangxin.github.io/images/avatar.png?v=1578126797379" class="site-logo">
+        <img src="https://machangxin.github.io/images/avatar.png?v=1578135310178" class="site-logo">
         <h1 class="site-title">Auk&#39;s blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -115,8 +115,8 @@
             <div class="post-date">2019-11-22</div>
             
             <div class="post-content">
-              <p>#next与nextLine的区别<br>
-next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符</p>
+              <h1 id="next与nextline的区别">next与nextLine的区别</h1>
+<p>next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符</p>
 <h1 id="jdbc连接mysql数据库">jdbc连接MySQL数据库</h1>
 <pre><code>// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
     static final String JDBC_DRIVER = &quot;com.mysql.cj.jdbc.Driver&quot;;  
@@ -140,10 +140,9 @@ next()一定要读取到有效字符后才可以结束输入，对输入有效�
             e.printStackTrace();
         }
 </code></pre>
-<p>https://blog.csdn.net/c1481118216/article/details/51921521</p>
-<p>#零碎<br>
-(1)idea中如果用GUI Form生成界面的话,在其文件中用Alt+insert生成代码<br>
-(2)JAVA SWING中使用window风格：</p>
+<h1 id="零碎">零碎</h1>
+<p>(1)idea中如果用GUI Form生成界面的话,在其文件中用Alt+insert生成代码</p>
+<p>(2)JAVA SWING中使用window风格：</p>
 <pre><code>UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 </code></pre>
 <p>(3)使用textarea时，使用append函数可能无法显示，此时需要paintImmediately函数</p>
@@ -160,7 +159,33 @@ group2.clearSelection();
 <pre><code>String str = &quot;abc&quot;;
 String repeated = str.repeat(n);//n为重复次数
 </code></pre>
-<p>(6) JAVA消息提示框</p>
+<h2 id="java消息提示框joptionpane">Java消息提示框JOptionPane</h2>
+<pre><code>JOptionPane.showMessageDialog(null, &quot;我是普通提示框！╮(╯▽╰)╭&quot;);  
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/putong.jpg" alt=""></figure>
+<pre><code>JOptionPane.showMessageDialog(null, &quot;我是警告提示框！╮(╯▽╰)╭&quot;, &quot;标题&quot;,JOptionPane.WARNING_MESSAGE);  
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/warning.jpg" alt=""></figure>
+<pre><code>JOptionPane.showMessageDialog(null, &quot;我是错误提示框！╮(╯▽╰)╭&quot;, &quot;标题&quot;,JOptionPane.ERROR_MESSAGE); 
+</code></pre>
+<figure data-type="image" tabindex="3"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/error.jpg" alt=""></figure>
+<pre><code>JOptionPane.showMessageDialog(null, &quot;我是最基本提示框！╮(╯▽╰)╭&quot;, &quot;标题&quot;,JOptionPane.PLAIN_MESSAGE);
+</code></pre>
+<figure data-type="image" tabindex="4"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/jiben.jpg" alt=""></figure>
+<pre><code>int n = JOptionPane.showConfirmDialog(null, &quot;你会了吗?&quot;, &quot;标题&quot;,JOptionPane.YES_NO_OPTION); //返回值为0或1
+</code></pre>
+<figure data-type="image" tabindex="5"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/yesorno.jpg" alt=""></figure>
+<pre><code>Object[] options ={ &quot;必须是&quot;, &quot;当然是&quot; };  //自定义按钮上的文字
+int m = JOptionPane.showOptionDialog(null, &quot;钓鱼岛是中国的吗？&quot;, &quot;标题&quot;,JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);//返回值为0或1  
+</code></pre>
+<figure data-type="image" tabindex="6"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/dingyi.jpg" alt=""></figure>
+<pre><code>Object[] obj2 ={ &quot;路人甲&quot;, &quot;路人乙&quot;, &quot;路人丙&quot; };  
+String s = (String) JOptionPane.showInputDialog(null,&quot;请选择你的身份:\n&quot;, &quot;身份&quot;, JOptionPane.PLAIN_MESSAGE, new ImageIcon(&quot;icon.png&quot;), obj2, &quot;足球&quot;);
+</code></pre>
+<figure data-type="image" tabindex="7"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/kuang.jpg" alt=""></figure>
+<pre><code>String s = JOptionPane.showInputDialog(null,&quot;请输入：\n&quot;,&quot;title&quot;,JOptionPane.PLAIN_MESSAGE); 
+</code></pre>
+<figure data-type="image" tabindex="8"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/input.jpg" alt=""></figure>
 
             </div>
             
