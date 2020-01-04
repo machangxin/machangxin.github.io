@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>DAG图优化 | Auk&#39;s blog</title>
+<title>JAVA杂七杂八小知识 | Auk&#39;s blog</title>
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -111,108 +111,67 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">DAG图优化</h2>
-            <div class="post-date">2019-11-28</div>
+            <h2 class="post-title">JAVA杂七杂八小知识</h2>
+            <div class="post-date">2019-11-22</div>
             
             <div class="post-content">
-              <p>大家都学过了代码优化，其中有一个DAG优化，这次我们就练习这个操作。</p>
-<p><strong>输入格式:</strong><br>
-输入第一行为一个整数ｎ(n &lt; 100)，表示该组输入的表达式的个数。<br>
-之后ｎ行为表达式，每个变量为一个字母，表达式仅包括二元运算 + - * / 。<br>
-例如：A=B+C 。</p>
-<p><strong>输出格式:</strong><br>
-通过构造DAG图，进行代码优化，只需要保留AB，删除无用变量，删除变量时，尽量保留最早出现的变量。<br>
-PS:保证AB的值不同</p>
-<p><strong>输入样例:</strong><br>
-3<br>
-A=B+C<br>
-B=B+B<br>
-A=C+C<br>
-<strong>输出样例:</strong><br>
-B=B+B<br>
-A=C+C</p>
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-struct{
-    char id;
-    int l=-1,r=-1;
-    vector&lt;char&gt;v;
-}node[105],ll,rr;
-int n,cnt=0;
-string s,ans[100];
-bool f[100];
-bool find(int i,char c){
-    for(char j:node[i].v) if(j==c) return 1;
-    return 0;
-}
-int add(char c){
-    for(int i=cnt;i&gt;=1;i--)
-        if(node[i].id==c||find(i,c)) return i;
-    node[++cnt].id=c;
-    return cnt;
-}
-void addf(char c,char op,int l,int r){
-    for(int i=cnt;i&gt;=1;i--){
-        if(node[i].l==l&amp;&amp;node[i].r==r&amp;&amp;node[i].id==op){
-            node[i].v.push_back(c);
-            return ;
+              <p>#next与nextLine的区别<br>
+next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符</p>
+<h1 id="jdbc连接mysql数据库">jdbc连接MySQL数据库</h1>
+<pre><code>// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
+    static final String JDBC_DRIVER = &quot;com.mysql.cj.jdbc.Driver&quot;;  
+    static final String DB_URL = &quot;jdbc:mysql://localhost:3306/RUNOOB?useSSL=false&amp;serverTimezone=UTC&quot;;
+    // 数据库的用户名与密码，需要根据自己的设置
+    static String USER = null;
+    static String PASS = null;
+    static Connection conn = null;
+    static Statement stmt = null;
+    public static void main() throws SQLException {
+    	Scanner cin = new Scanner(System.in);
+        try{
+            // 注册 JDBC 驱动
+            Class.forName(JDBC_DRIVER);
+            // 打开链接
+            if(USER.equals(&quot;root&quot;)&amp;&amp;PASS.equals(&quot;123456&quot;)) {
+            	conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            }
+        }catch (ClassNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
         }
-    }
-    node[++cnt].id=op;
-    node[cnt].v.push_back(c);
-    node[cnt].l=l;
-    node[cnt].r=r;
-    return ;
-}
-void dfs(int i){
-    if(node[i].l!=-1){
-        f[i]=1;
-        dfs(node[i].l);
-        dfs(node[i].r);
-    }
-}
-int main(){
-    cin&gt;&gt;n;
-    while(n--){
-        cin&gt;&gt;s;
-        int l= add(s[2]),r = add(s[4]);
-        addf(s[0],s[3],l,r);
-    }
-    for(int i=1;i&lt;=cnt;i++)
-    if(node[i].l!=-1){
-        ans[i]+=node[i].v[0];
-        ans[i]+='=';
-        ll=node[node[i].l];
-        rr=node[node[i].r];
-        ans[i]+=ll.v.size()? ll.v[0]:ll.id;
-        ans[i]+=node[i].id;
-        ans[i]+=rr.v.size()? rr.v[0]:rr.id;
-    }
-    for(int i=cnt;i&gt;=1;i--){
-        if(ans[i][0]=='A'){
-            dfs(i);
-            break;
-        }
-    }
-
-    for(int i=cnt;i&gt;=1;i--){
-        if(ans[i][0]=='B'){
-            dfs(i);
-            break;
-        }
-    }
-    for(int i=1;i&lt;=cnt;i++)
-        if(f[i])
-        cout&lt;&lt;ans[i]&lt;&lt;endl;
-}
 </code></pre>
+<p>https://blog.csdn.net/c1481118216/article/details/51921521</p>
+<p>#零碎<br>
+(1)idea中如果用GUI Form生成界面的话,在其文件中用Alt+insert生成代码<br>
+(2)JAVA SWING中使用window风格：</p>
+<pre><code>UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+</code></pre>
+<p>(3)使用textarea时，使用append函数可能无法显示，此时需要paintImmediately函数</p>
+<pre><code>JTextArea2.append(&quot;进程2输出完毕！\n&quot;);//紧跟在此后面加上下面语句即可
+JTextArea2.paintImmediately(JTextArea2.getBounds());
+</code></pre>
+<p>(4)ButtonGroup中有许多RadioButton,清除ButtonGroup的选择状态</p>
+<pre><code>ButtonGroup group2 = new ButtonGroup ();
+group2.add (Fcfs);
+group2.add (Spf);
+group2.clearSelection();
+</code></pre>
+<p>(5) JAVA中一个字符串重复n遍</p>
+<pre><code>String str = &quot;abc&quot;;
+String repeated = str.repeat(n);//n为重复次数
+</code></pre>
+<p>(6) JAVA消息提示框</p>
 
             </div>
             
               <div class="tag-container">
                 
-                  <a href="https://machangxin.github.io/tag/p65s-9oeF" class="tag">
-                    编译原理题解报告
+                  <a href="https://machangxin.github.io/tag/X4rJbKKsJ" class="tag">
+                    JAVA
+                  </a>
+                
+                  <a href="https://machangxin.github.io/tag/KnUv2qrsa" class="tag">
+                    杂七杂八
                   </a>
                 
               </div>
@@ -220,9 +179,9 @@ int main(){
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://machangxin.github.io/post/qb9rLP5a_">
+                <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题">
                   <h3 class="post-title">
-                    小C语言--词法分析程序
+                    洛谷 P1106 删数问题
                   </h3>
                 </a>
               </div>

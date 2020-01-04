@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>DAG图优化 | Auk&#39;s blog</title>
+<title>Python杂七杂八小知识 | Auk&#39;s blog</title>
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -111,118 +111,28 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">DAG图优化</h2>
-            <div class="post-date">2019-11-28</div>
+            <h2 class="post-title">Python杂七杂八小知识</h2>
+            <div class="post-date">2020-01-04</div>
             
             <div class="post-content">
-              <p>大家都学过了代码优化，其中有一个DAG优化，这次我们就练习这个操作。</p>
-<p><strong>输入格式:</strong><br>
-输入第一行为一个整数ｎ(n &lt; 100)，表示该组输入的表达式的个数。<br>
-之后ｎ行为表达式，每个变量为一个字母，表达式仅包括二元运算 + - * / 。<br>
-例如：A=B+C 。</p>
-<p><strong>输出格式:</strong><br>
-通过构造DAG图，进行代码优化，只需要保留AB，删除无用变量，删除变量时，尽量保留最早出现的变量。<br>
-PS:保证AB的值不同</p>
-<p><strong>输入样例:</strong><br>
-3<br>
-A=B+C<br>
-B=B+B<br>
-A=C+C<br>
-<strong>输出样例:</strong><br>
-B=B+B<br>
-A=C+C</p>
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-struct{
-    char id;
-    int l=-1,r=-1;
-    vector&lt;char&gt;v;
-}node[105],ll,rr;
-int n,cnt=0;
-string s,ans[100];
-bool f[100];
-bool find(int i,char c){
-    for(char j:node[i].v) if(j==c) return 1;
-    return 0;
-}
-int add(char c){
-    for(int i=cnt;i&gt;=1;i--)
-        if(node[i].id==c||find(i,c)) return i;
-    node[++cnt].id=c;
-    return cnt;
-}
-void addf(char c,char op,int l,int r){
-    for(int i=cnt;i&gt;=1;i--){
-        if(node[i].l==l&amp;&amp;node[i].r==r&amp;&amp;node[i].id==op){
-            node[i].v.push_back(c);
-            return ;
-        }
-    }
-    node[++cnt].id=op;
-    node[cnt].v.push_back(c);
-    node[cnt].l=l;
-    node[cnt].r=r;
-    return ;
-}
-void dfs(int i){
-    if(node[i].l!=-1){
-        f[i]=1;
-        dfs(node[i].l);
-        dfs(node[i].r);
-    }
-}
-int main(){
-    cin&gt;&gt;n;
-    while(n--){
-        cin&gt;&gt;s;
-        int l= add(s[2]),r = add(s[4]);
-        addf(s[0],s[3],l,r);
-    }
-    for(int i=1;i&lt;=cnt;i++)
-    if(node[i].l!=-1){
-        ans[i]+=node[i].v[0];
-        ans[i]+='=';
-        ll=node[node[i].l];
-        rr=node[node[i].r];
-        ans[i]+=ll.v.size()? ll.v[0]:ll.id;
-        ans[i]+=node[i].id;
-        ans[i]+=rr.v.size()? rr.v[0]:rr.id;
-    }
-    for(int i=cnt;i&gt;=1;i--){
-        if(ans[i][0]=='A'){
-            dfs(i);
-            break;
-        }
-    }
-
-    for(int i=cnt;i&gt;=1;i--){
-        if(ans[i][0]=='B'){
-            dfs(i);
-            break;
-        }
-    }
-    for(int i=1;i&lt;=cnt;i++)
-        if(f[i])
-        cout&lt;&lt;ans[i]&lt;&lt;endl;
-}
+              <h1 id="python">python</h1>
+<p>用input输入文件地址时，字符串首部可能出现\u202A，解决方法：</p>
+<pre><code>target_name =input(&quot;请输入txt创建地址:\n(例:C:\\Users\马长鑫\Desktop)&quot;)#目标地址
+target_name = target_name.replace(u'\u202A', '')
+https://blog.csdn.net/fancy10255/article/details/88965926
 </code></pre>
+<p>##python打包<br>
+在anconda下运行<br>
+pyinstaller -i icno.ico Main.py -p alterPass.py -p Login.py -p stud.py -p UI.py --noconsole</p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://machangxin.github.io/tag/p65s-9oeF" class="tag">
-                    编译原理题解报告
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://machangxin.github.io/post/qb9rLP5a_">
+                <a href="https://machangxin.github.io/post/49gvoHq33">
                   <h3 class="post-title">
-                    小C语言--词法分析程序
+                    简单的代码生成程序
                   </h3>
                 </a>
               </div>
