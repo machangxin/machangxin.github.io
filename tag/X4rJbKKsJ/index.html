@@ -7,19 +7,18 @@
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1578138890625">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1578135500497">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
 
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123761131-1"></script>
 <script>
@@ -33,52 +32,108 @@
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://machangxin.github.io">
-        <img src="https://machangxin.github.io/images/avatar.png?v=1578135500497" class="site-logo">
-        <h1 class="site-title">Auk&#39;s blog</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
-      
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://machangxin.github.io">Auk&#39;s blog</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
+          <li>
+            
+              <a href="/" class="menu">
+                首页
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
         
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
         
-      
+          <li>
+            
+              <a href="/post/about" class="menu">
+                关于
+              </a>
+            
+          </li>
         
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
+      </ul>
     </div>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <h2 class="current-tag">标签: JAVA</h2>
+          
+  <article class="article">
+    <h2 class="article-title">
+      <a href="https://machangxin.github.io/post/JAVAlittle  knowledge">JAVA杂七杂八小知识</a>
+    </h2>
+    <p class="article-meta">
+      2019-11-22
+      
+        <a href="https://machangxin.github.io/tag/X4rJbKKsJ" class="badge ">
+          JAVA
+        </a>
+      
+        <a href="https://machangxin.github.io/tag/KnUv2qrsa" class="badge secondary">
+          杂七杂八
+        </a>
+      
+    </p>
+    <p class="text-lead">
+      
+    </p>
+    <div class="row">
+      <a href="https://machangxin.github.io/post/JAVAlittle  knowledge" class="readmore-link">
+        <button>
+          Read More
+        </button>
+      </a>
+    </div>
+  </article>
+
+
+        </div>
+        <div class="row flex-edges">
+  
+  
+</div>
+
+      </div>
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://machangxin.github.io/images/avatar.png?v=1578138890625" class="no-responsive avatar">
+    <div class="text-muted">我是一只小小鸟</div>
     <div class="social-container">
       
         
-          <a class="social-link" href="https://github.com/machangxin" target="_blank">
+          <a href="https://github.com/machangxin" target="_blank">
             <i class="fab fa-github"></i>
           </a>
         
@@ -92,43 +147,110 @@
         
       
     </div>
-    <div class="site-description">
-      我是一只小小鸟
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
     </div>
-    <div class="site-footer">
-       | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/kyNXVkSQo">Python杂七杂八小知识</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/49gvoHq33">简单的代码生成程序</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/d_CBRYM0E">翻译布尔表达式</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/15RsiSbeQ">DAG图优化</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/qb9rLP5a_">小C语言--词法分析程序</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/cn0cfeQNa">表达式语法分析——递归子程序法</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/JAVAlittle  knowledge">JAVA杂七杂八小知识</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题">洛谷 P1106 删数问题</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/about">关于</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://machangxin.github.io/post/hello-gridea">Hello Gridea</a>
+            </li>
+          
+        
+      </ul>
     </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://machangxin.github.io/tag/YiivqrwfD" class="badge warning">
+          Python
+        </a>
+      
+        <a href="https://machangxin.github.io/tag/KnUv2qrsa" class="badge success">
+          杂七杂八
+        </a>
+      
+        <a href="https://machangxin.github.io/tag/p65s-9oeF" class="badge success">
+          编译原理题解报告
+        </a>
+      
+        <a href="https://machangxin.github.io/tag/X4rJbKKsJ" class="badge secondary">
+          JAVA
+        </a>
+      
+        <a href="https://machangxin.github.io/tag/v9yI8FoC7" class="badge success">
+          刷题
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+     | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: JAVA</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://machangxin.github.io/post/JAVAlittle  knowledge">
-                  <h2 class="post-title">JAVA杂七杂八小知识</h2>
-                </a>
-                <div class="post-date">
-                  2019-11-22
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-
-          <div class="pagination-container">
-  
-  
-</div>
-
-        </div>
-      </div>
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -138,13 +260,6 @@
 AOS.init();
 
 hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
 
 </script>
 
