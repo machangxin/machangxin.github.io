@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Auk&apos;s blog</title>
-    <updated>2020-01-15T09:23:33.690Z</updated>
+    <updated>2020-03-05T02:12:27.725Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
@@ -11,66 +11,73 @@
     <icon>https://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Auk&apos;s blog</rights>
     <entry>
+        <title type="html"><![CDATA[软件项目管理案例教程 第4版 课后习题答案]]></title>
+        <id>https://machangxin.github.io/post/ix_cAwPuX/</id>
+        <link href="https://machangxin.github.io/post/ix_cAwPuX/">
+        </link>
+        <updated>2020-03-05T02:09:38.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python，用input输入复制的文件地址时，字符串首部可能出现\u202A]]></title>
+        <id>https://machangxin.github.io/post/rqPWYQJ_s/</id>
+        <link href="https://machangxin.github.io/post/rqPWYQJ_s/">
+        </link>
+        <updated>2020-03-04T12:57:06.000Z</updated>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Windows系统下使用Vmware虚拟Mac OS]]></title>
-        <id>https://machangxin.github.io/post/oYoEE1NnA</id>
-        <link href="https://machangxin.github.io/post/oYoEE1NnA">
+        <id>https://machangxin.github.io/post/oYoEE1NnA/</id>
+        <link href="https://machangxin.github.io/post/oYoEE1NnA/">
         </link>
         <updated>2020-01-15T03:02:52.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Python杂七杂八小知识]]></title>
-        <id>https://machangxin.github.io/post/kyNXVkSQo</id>
-        <link href="https://machangxin.github.io/post/kyNXVkSQo">
+        <id>https://machangxin.github.io/post/kyNXVkSQo/</id>
+        <link href="https://machangxin.github.io/post/kyNXVkSQo/">
         </link>
         <updated>2019-12-01T07:45:03.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[简单的代码生成程序]]></title>
-        <id>https://machangxin.github.io/post/49gvoHq33</id>
-        <link href="https://machangxin.github.io/post/49gvoHq33">
+        <id>https://machangxin.github.io/post/49gvoHq33/</id>
+        <link href="https://machangxin.github.io/post/49gvoHq33/">
         </link>
         <updated>2019-11-28T03:09:27.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[翻译布尔表达式]]></title>
-        <id>https://machangxin.github.io/post/d_CBRYM0E</id>
-        <link href="https://machangxin.github.io/post/d_CBRYM0E">
+        <id>https://machangxin.github.io/post/d_CBRYM0E/</id>
+        <link href="https://machangxin.github.io/post/d_CBRYM0E/">
         </link>
         <updated>2019-11-28T03:08:32.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[DAG图优化]]></title>
-        <id>https://machangxin.github.io/post/15RsiSbeQ</id>
-        <link href="https://machangxin.github.io/post/15RsiSbeQ">
+        <id>https://machangxin.github.io/post/15RsiSbeQ/</id>
+        <link href="https://machangxin.github.io/post/15RsiSbeQ/">
         </link>
         <updated>2019-11-28T03:07:08.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[小C语言--词法分析程序]]></title>
-        <id>https://machangxin.github.io/post/qb9rLP5a_</id>
-        <link href="https://machangxin.github.io/post/qb9rLP5a_">
+        <id>https://machangxin.github.io/post/qb9rLP5a_/</id>
+        <link href="https://machangxin.github.io/post/qb9rLP5a_/">
         </link>
         <updated>2019-11-28T03:05:29.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[表达式语法分析——递归子程序法]]></title>
-        <id>https://machangxin.github.io/post/cn0cfeQNa</id>
-        <link href="https://machangxin.github.io/post/cn0cfeQNa">
+        <id>https://machangxin.github.io/post/cn0cfeQNa/</id>
+        <link href="https://machangxin.github.io/post/cn0cfeQNa/">
         </link>
         <updated>2019-11-28T03:02:21.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[JAVA杂七杂八小知识]]></title>
-        <id>https://machangxin.github.io/post/JAVAlittle  knowledge</id>
-        <link href="https://machangxin.github.io/post/JAVAlittle  knowledge">
+        <id>https://machangxin.github.io/post/JAVAlittle  knowledge/</id>
+        <link href="https://machangxin.github.io/post/JAVAlittle  knowledge/">
         </link>
         <updated>2019-11-22T05:49:17.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[洛谷 P1106 删数问题]]></title>
-        <id>https://machangxin.github.io/post/洛谷 P1106 删数问题</id>
-        <link href="https://machangxin.github.io/post/洛谷 P1106 删数问题">
-        </link>
-        <updated>2019-11-21T01:40:24.000Z</updated>
     </entry>
 </feed>
