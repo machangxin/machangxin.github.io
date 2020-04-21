@@ -1,185 +1,308 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" >
 
-<title>Python | Aurora&#39;s blog</title>
-<meta name="description" content="我是一只小小鸟">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587436942707">
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    Python | Aurora&#39;s blog
+</title>
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587448752776">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://machangxin.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+</head>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123761131-1"></script>
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://machangxin.github.io">
+                <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587448752776" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    Aurora&#39;s blog
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="/" class="menu">
+                                    首页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/post/about" class="menu">
+                                    关于
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
 
-  gtag('config', 'UA-123761131-1');
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
 </script>
 
-
-  </head>
-  <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://machangxin.github.io">
-        <img src="https://machangxin.github.io/images/avatar.png?v=1587436942707" class="site-logo">
-        <h1 class="site-title">Aurora&#39;s blog</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
+            <div id="main-content" class="post-container main-container">
+                <div id="content" class="main-container-left">
+                    
+    <div class="i-card">
+        <b>标签：#
+        Python</b>
     </div>
-    <div>
-      
+    
         
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
-      
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
-      
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
-      
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
-      
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-          <a class="social-link" href="https://github.com/machangxin" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      我是一只小小鸟
-    </div>
-    <div class="site-footer">
-       | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
-
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: Python</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://machangxin.github.io/post/BWvIospQx/">
-                  <h2 class="post-title">python程序打包成exe</h2>
-                </a>
-                <div class="post-date">
-                  2020-03-05
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://machangxin.github.io/post/BWvIospQx/">
+                        python程序打包成exe
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2020-03-05</time>
+                    
+                        <a href="https://machangxin.github.io/tag/YiivqrwfD/" class="post-tag i-tag
+                            i-tag-">
+            #Python
+        </a>
+                        
+                        <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="post-tag i-tag
+                            i-tag-other_4">
+            #杂七杂八
+        </a>
+                        
                 </div>
-                <div class="post-abstract">
-                  
+                <div class="post-article">
+                    
+                            <div class="post-content">
+                                
+                                        <div class="post-content-content">
+                                            在anconda PowerShell Prompt下运行下面的命令
+pyinstaller -i icno.ico(图标) Main.py(主文件) -p alterPass.py -p Login.py -p stud.py -p UI.py --noconsole(不显示黑窗口)
+
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://machangxin.github.io/post/BWvIospQx/">Read More ~</a>
+                            </div>
                 </div>
-              </div>
-              
             </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://machangxin.github.io/post/rqPWYQJ_s/">
-                  <h2 class="post-title">用input输入复制的文件地址时，字符串首部可能出现\u202A</h2>
-                </a>
-                <div class="post-date">
-                  2020-03-04
+            
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://machangxin.github.io/post/rqPWYQJ_s/">
+                        用input输入复制的文件地址时，字符串首部可能出现\u202A
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2020-03-04</time>
+                    
+                        <a href="https://machangxin.github.io/tag/YiivqrwfD/" class="post-tag i-tag
+                            i-tag-primary">
+            #Python
+        </a>
+                        
+                        <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="post-tag i-tag
+                            i-tag-other_2">
+            #杂七杂八
+        </a>
+                        
                 </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://machangxin.github.io/post/kyNXVkSQo/">
-                  <h2 class="post-title">Python杂七杂八小知识</h2>
-                </a>
-                <div class="post-date">
-                  2019-12-01
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+                <div class="post-article">
+                    
+                            <div class="post-content">
+                                
+                                        <div class="post-content-content">
+                                            target_name =input(&amp;quot;请输入txt创建地址:\n(例:C:\\Users\马长鑫\Desktop)&amp;quot;)#目标地址
+target_name = target_name.replace(u&#39;\u202A&#39;, &#39;&#39;)
 
-          <div class="pagination-container">
-  
-  
-</div>
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://machangxin.github.io/post/rqPWYQJ_s/">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://machangxin.github.io/post/kyNXVkSQo/">
+                        Python杂七杂八小知识
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2019-12-01</time>
+                    
+                        <a href="https://machangxin.github.io/tag/YiivqrwfD/" class="post-tag i-tag
+                            i-tag-other_1">
+            #Python
+        </a>
+                        
+                        <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="post-tag i-tag
+                            i-tag-other_2">
+            #杂七杂八
+        </a>
+                        
+                </div>
+                <div class="post-article">
+                    
+                            <div class="post-content">
+                                
+                                        <div class="post-content-content">
+                                            使用os.system()运行的命令，在python项目打包成exe文件后，会出现黑窗口，如下方式写，不会出现黑窗口，注意通配符
+res = subprocess.run(&amp;quot;copy %s img\\test.jpg&amp;quot; % (imgName), shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+如何用os.system()一次运行多个命令
+os.system(cmd1 &amp;amp; cmd2)
+
+在frame中添加图片，并转换为指定大小
+def resizebmp(self,image, width, height):  # 图片的转换,限定图片大小 实现缩放
+        bmp = image.Scale(width, height).ConvertToBitmap()  # 按照比例缩放
+        return bmp
+
+img = wx.Image(&amp;quot;./pic/admin.jpg&amp;quot;, wx.BITMAP_TYPE_ANY).ConvertToBitmap()  # 转换成位图
+# 设置图片在panel中的位置
+self.staticbmp = wx.StaticBitmap(self.adminPanel, -1, img, pos=(0, 0))#panel修改
+# 调用函数设置图片的大小
+myimg = wx.Image(&amp;quot;./pic/admin.jpg&amp;quot;, wx.BITMAP_TYPE_ANY)
+ self.staticbmp.SetBitmap(self.resizebmp(myimg,700,350))#700,350，为水平长度，垂直长度
+
+为窗口添加图标
+self.icon = wx.Icon(name=&amp;quot;./pic/icon.ico&amp;quot;, type=wx.BITMAP_TYPE_ICO)
+       self.adminFrame.SetIcon(self.icon)
+
+python 读取excel文件相关操作
+       wild = &#39;Excel 文件(*.xls,*.xlsx)|*.*&#39;
+       dialog = wx.FileDialog(None, &#39;选择Excel文件&#39;, os.getcwd(), &#39;&#39;, wild, wx.FD_OPEN)
+       if dialog.ShowModal() == wx.ID_OK:
+           fileName = os.path.basename(dialog.GetPath())
+           ExcelFile = open_workbook(dialog.GetPath())
+           sheet = ExcelFile.sheet_by_index(0)
+           row = sheet.nrows
+           for i in range(1, row):
+                   d = float(sheet.cell(i, 3).value)
+                   e = float(sheet.cell(i, 4).value)
+                   f = float(sheet.cell(i, 5).value)
+
+画饼图之类的用matplotlib库
+老土 wxpython教程
+推荐 wxpython教程
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://machangxin.github.io/post/kyNXVkSQo/">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+                <!-- 翻页 -->
+                
+                </div>
+                <!--  -->
+                <div class="main-container-middle"></div>
+                <!--  -->
+                <div id="sidebar" class="main-container-right">
+
+                    <!-- 个人信息 -->
+                    
+    <div class="id_card i-card">
+        <div class="id_card-avatar" style="background-image: url(https://machangxin.github.io/images/avatar.png?v=1587448752776)">
+        </div>
+        <h1 class="id_card-title">
+            Aurora&#39;s blog
+        </h1>
+        <h2 class="id_card-description">
+            我是一只小小鸟
+        </h2>
+        <!--  -->
+        <div class="id_card-sns">
+            <!-- github -->
+            
+                    <!-- twitter -->
+                    
+                            <!-- weibo -->
+                            
+                                    <!-- facebook -->
+                                    
 
         </div>
-      </div>
     </div>
+    
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                        <!-- 公告栏 -->
+                        
 
-<script type="application/javascript">
+                </div>
+            </div>
 
-AOS.init();
 
-hljs.initHighlightingOnLoad()
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+            <div class="site-footer">
+   | 
+  <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
 
+<script>
+  hljs.initHighlightingOnLoad()
 </script>
 
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+</body>
 
-
-
-  </body>
 </html>
