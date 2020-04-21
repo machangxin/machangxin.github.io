@@ -1,246 +1,175 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    tips | Aurora&#39;s blog
-</title>
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587448752776">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>tips | Aurora&#39;s blog</title>
+<meta name="description" content="我是一只小小鸟">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587449381571">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://machangxin.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-</head>
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://machangxin.github.io">
-                <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587448752776" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    Aurora&#39;s blog
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://machangxin.github.io">
+        <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587449381571" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://machangxin.github.io">
+        <h1 class="site-title">Aurora&#39;s blog</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
-    <div class="i-card">
-        <b>标签：#
-        tips</b>
-    </div>
-    
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
         
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/oYoEE1NnA/">
-                        Windows系统下使用Vmware虚拟Mac OS
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2020-01-15</time>
-                    
-                        <a href="https://machangxin.github.io/tag/rflT3JkuX/" class="post-tag i-tag
-                            i-tag-other_3">
-            #tips
-        </a>
-                        
-                        <a href="https://machangxin.github.io/tag/CaYKEZteVr/" class="post-tag i-tag
-                            i-tag-success">
-            #教程
-        </a>
-                        
-                        <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="post-tag i-tag
-                            i-tag-info">
-            #杂七杂八
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            第一步 准备软件
-在 Windows系统下安装虚拟 Mac OS 系统之前，你需要先准备好下面这三个软件：
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
-VMware Workstation（提供虚拟环境）
-Unlock master（使VMware可以运行Mac OS）
-Mac OS镜像系统
-这三个东西，我会放在文章评论里面，有需要的可以自取，VMware没有激活码，自己谷歌一个即可。
 
-第二步 解锁VMware下添加Mac OS的权限
-VMware 默认不支持安装 Mac OS 系统，我们需要借助Unlock-master，获得安装 Mac OS系统的权限。下载并解压 Unlock-master软件后，需要将 Unlock-master文件夹放在与 VMware文件夹所在的同一文件夹下，如下图。
+      <div class="content-container">
 
-打开 Unlock-master 文件夹，找到一个名为win-install.cmd的文件，右键选择以管理员身份运行。等待黑窗口自动运行，等待窗口显示Starting VMware services…，即意味着成功解锁安装 Mac OS 系统的权限。
-第三步 添加 Mac OS 虚拟机
-首先，运行VMware软件，选择创建新的虚拟机，如下图。
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> tips
+          </h2> 
+        </div>
 
-然后，在弹出的新建虚拟机向导窗口，选择典型，继续下一步。
-
-选择安装程序光盘映像文件(iso)，点击右侧的浏览，在弹出的选择文件框中，选择全部文件。
-
-打开完成解压缩的镜像系统 cdr 文件。打开后，会出现无法检测此光盘映像中的操作系统的错误提示，可以略过不管，继续下一步的操作。
-
-客户机操作系统选择Apple Mac OS X，下面选择对应的系统版本，由于我下载的镜像系统版本为 10.12 ，因此版本选择macOS 10.12。
-
-在命名虚拟机的环节，需要设置虚拟机的名称和存放的位置，名称默认即可，位置选择一个空间充足的磁盘。
-第四步 启动Mac OS
-完成以上操作后，窗口会新增一个 Mac OS 10.12 的标签页，点击工具栏的运行按钮，等待镜像系统完成加载。
-
-镜像系统完成加载后，需要先进行一些基础设置，如设置系统的语言、阅读系统使用协议等，这些略过。
-在安装macOS步骤时，点击顶部的实用工具，选择磁盘工具。
-
-在弹出的磁盘工具面板，选择左侧 VMware 开头的磁盘，接着点击顶部的抹掉按钮。
-
-在弹出的面板中，修改默认的名称，下面的格式和方案选项保持默认值即可。
-
-抹除数据之后，关闭磁盘工具面板，可以发现右侧新增了一个 macOS 的磁盘图标，选中磁盘，点击底部的继续。
-
-完成以上所有的操作后，Mac OS系统才正式开始安装，与安装 Windows 系统一样，这是一个漫长的等待过程。
-
-系统完成安装后，还需要进行一定的初始化设置，当提示登录 Apple ID 时，如果你之前没注册过 Apple ID，这里可以选择不登录。
-
-完成一系列初始化设置之后，等待系统进入 Mac OS 桌面，就意味着系统安装成功了。
-
-如果还有其他问题，欢迎在下面留言。
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/oYoEE1NnA/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/oYoEE1NnA/">
+        <h2 class="post-title">Windows系统下使用Vmware虚拟Mac OS</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2020-01-15</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
             
-                <!-- 翻页 -->
+              <a href="https://machangxin.github.io/tag/rflT3JkuX/">
+                tips
                 
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://machangxin.github.io/images/avatar.png?v=1587448752776)">
-        </div>
-        <h1 class="id_card-title">
-            Aurora&#39;s blog
-        </h1>
-        <h2 class="id_card-description">
-            我是一只小小鸟
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
+                  ，
+                
+              </a>
             
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
+              <a href="https://machangxin.github.io/tag/CaYKEZteVr/">
+                教程
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://machangxin.github.io/tag/KnUv2qrsa/">
+                杂七杂八
+                
+              </a>
+            
+          </span>
+        
+      </div>
     </div>
     
-
-                        <!-- 公告栏 -->
-                        
-
-                </div>
-            </div>
+  </section>
 
 
-
-            <div class="site-footer">
-   | 
-  <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+<div class="pagination-container">
+  
+  
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">我是一只小小鸟</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
+    <script type="application/javascript">
 
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>

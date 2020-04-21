@@ -1,223 +1,161 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    刷题 | Aurora&#39;s blog
-</title>
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587448752776">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>刷题 | Aurora&#39;s blog</title>
+<meta name="description" content="我是一只小小鸟">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587449381571">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://machangxin.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-</head>
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://machangxin.github.io">
-                <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587448752776" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    Aurora&#39;s blog
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://machangxin.github.io">
+        <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587449381571" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://machangxin.github.io">
+        <h1 class="site-title">Aurora&#39;s blog</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
-    <div class="i-card">
-        <b>标签：#
-        刷题</b>
-    </div>
-    
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
         
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">
-                        洛谷 P1106 删数问题
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-21</time>
-                    
-                        <a href="https://machangxin.github.io/tag/v9yI8FoC7/" class="post-tag i-tag
-                            i-tag-other_3">
-            #刷题
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            题目描述
-键盘输入一个高精度的正整数N（不超过250位） ，去掉其中任意k个数字后剩下的数字按原左右次序将组成一个新的正整数。编程对给定的N和k，寻找一种方案使得剩下的数字组成的新数最小。
-输入格式
-n (高精度的正整数) k(需要删除的数字个数)
-输出格式
-最后剩下的最小数。
-输入
-175438
-4
-输出
-13
-
-#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理
-include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-int main(){
-    string n;
-    int k;
-    cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;k;
-    int m=0;
-    for(int i=0; i&amp;lt;n.length(); i++)
-        if(n[i]&amp;gt;n[i+1]&amp;amp;&amp;amp;m&amp;lt;k){
-            n.erase(i,1);
-            m++;
-            i=-1;
-        }
-    while(n[0]==&#39;0&#39;)n.erase(0,1);
-    n.length()!=0? cout&amp;lt;&amp;lt;n.substr(0,n.length()-(k-m))&amp;lt;&amp;lt;endl:cout&amp;lt;&amp;lt;&amp;quot;0&amp;quot;&amp;lt;&amp;lt;endl;
-}
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
 
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> 刷题
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">
+        <h2 class="post-title">洛谷 P1106 删数问题</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-21</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
             
-                <!-- 翻页 -->
+              <a href="https://machangxin.github.io/tag/v9yI8FoC7/">
+                刷题
                 
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://machangxin.github.io/images/avatar.png?v=1587448752776)">
-        </div>
-        <h1 class="id_card-title">
-            Aurora&#39;s blog
-        </h1>
-        <h2 class="id_card-description">
-            我是一只小小鸟
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
+              </a>
             
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
+          </span>
+        
+      </div>
     </div>
     
-
-                        <!-- 公告栏 -->
-                        
-
-                </div>
-            </div>
+  </section>
 
 
-
-            <div class="site-footer">
-   | 
-  <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+<div class="pagination-container">
+  
+  
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">我是一只小小鸟</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
+    <script type="application/javascript">
 
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>

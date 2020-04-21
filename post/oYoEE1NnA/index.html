@@ -1,135 +1,122 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    Windows系统下使用Vmware虚拟Mac OS | Aurora&#39;s blog
-</title>
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587448752776">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Windows系统下使用Vmware虚拟Mac OS | Aurora&#39;s blog</title>
+<meta name="description" content="我是一只小小鸟">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587449381571">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://machangxin.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-        
-            
-                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-                <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-                
 
-                    
-                            
-</head>
-
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://machangxin.github.io">
-                <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587448752776" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    Aurora&#39;s blog
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://machangxin.github.io">
+        <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587449381571" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://machangxin.github.io">
+        <h1 class="site-title">Aurora&#39;s blog</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
 
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-detail main-container">
-                <!-- left -->
-                <div id="content" class="main-container-left">
-                    <article class="post i-card">
-                        <h2 class="post-title">
-                            Windows系统下使用Vmware虚拟Mac OS
-                        </h2>
-                        <div class="post-info">
-                            <time class="post-time">2020-01-15</time>
-                            
-                                <a href="https://machangxin.github.io/tag/rflT3JkuX/" class="post-tag i-tag
-                            i-tag-banana">
-                            #tips
-                        </a>
-                                
-                                <a href="https://machangxin.github.io/tag/CaYKEZteVr/" class="post-tag i-tag
-                            i-tag-">
-                            #教程
-                        </a>
-                                
-                                <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="post-tag i-tag
-                            i-tag-">
-                            #杂七杂八
-                        </a>
-                                
-                        </div>
-                        
-                                <div class="post-content">
-                                    <h1 id="第一步-准备软件">第一步 准备软件</h1>
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Windows系统下使用Vmware虚拟Mac OS</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-01-15</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://machangxin.github.io/tag/rflT3JkuX/">
+                    tips
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://machangxin.github.io/tag/CaYKEZteVr/">
+                    教程
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://machangxin.github.io/tag/KnUv2qrsa/">
+                    杂七杂八
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="第一步-准备软件">第一步 准备软件</h1>
 <p>在 Windows系统下安装虚拟 Mac OS 系统之前，你需要先准备好下面这三个软件：</p>
 <ul>
 <li>VMware Workstation（提供虚拟环境）</li>
@@ -173,113 +160,86 @@
 <img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/20200115170513.png" alt="" loading="lazy"></p>
 <p>如果还有其他问题，欢迎在下面留言。</p>
 
-                                </div>
-                    </article>
-                    <!--  -->
-                    
-                        <div class="next-post">
-                            <div class="next">下一篇</div>
-                            <a href="https://machangxin.github.io/post/kyNXVkSQo/">
-                                <h3 class="post-title">
-                                    Python杂七杂八小知识
-                                </h3>
-                            </a>
-                        </div>
-                        
-                            <div id="disqus_thread"></div>
-                            <div id="gitalk-container"></div>
-                </div>
-                <!-- middle -->
-                <div class="main-container-middle"></div>
-                <!-- right -->
-                <div id="sidebar" class="main-container-right">
-                    
-                        <!-- toc -->
-                        
-    <div class="toc-card i-card ">
-        <div class="toc-title i-card-title">目录</div>
-        <div class="toc-content">
-            <ul class="markdownIt-TOC">
-<li><a href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%87%86%E5%A4%87%E8%BD%AF%E4%BB%B6">第一步 准备软件</a></li>
-<li><a href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E8%A7%A3%E9%94%81vmware%E4%B8%8B%E6%B7%BB%E5%8A%A0mac-os%E7%9A%84%E6%9D%83%E9%99%90">第二步 解锁VMware下添加Mac OS的权限</a></li>
-<li><a href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E6%B7%BB%E5%8A%A0-mac-os-%E8%99%9A%E6%8B%9F%E6%9C%BA">第三步 添加 Mac OS 虚拟机</a></li>
-<li><a href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%90%AF%E5%8A%A8mac-os">第四步 启动Mac OS</a></li>
-</ul>
-
+          </div>
         </div>
-        <script>
-            function locateCatelogList() {
-                /*获取文章目录集合,可通过:header过滤器*/
-                var alis = $('.post-content :header');
-                /*获取侧边栏目录列表集合**/
-                var sidebar_alis = $('.markdownIt-TOC a');
-                /*获取滚动条到顶部的距离*/
-                var scroll_height = $(window).scrollTop();
-                for (var i = 0; i < alis.length; i++) {
-                    /*获取锚点集合中的元素分别到顶点的距离*/
-                    var a_height = $(alis[i]).offset().top;
-                    if (a_height < scroll_height) {
-                        /*高亮显示*/
-                        sidebar_alis.removeClass('on');
-                        $(sidebar_alis[i]).addClass('on');
-                    }
-                }
-            }
-            $(function() {
-                /*绑定滚动事件 */
-                $(window).bind('scroll', locateCatelogList);
-            });
-        </script>
-    </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://machangxin.github.io/post/kyNXVkSQo/">
+              <h3 class="post-title">
+                下一篇：Python杂七杂八小知识
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">我是一只小小鸟</div>
+  <div class="social-container">
     
-                            
-
-                </div>
-
-
-
-
-            </div>
-
-
-            <div class="site-footer">
-   | 
-  <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-    
-        
-            <script>
-    window.onload = function() {
-        var gitalk = new Gitalk({
-            clientID: '39799e8a1db05650a9a6',
-            clientSecret: '7f09f55bdb26bd03e9aa2a08c1485eaa84f35d1d',
-            repo: 'machangxin.github.io',
-            owner: 'machangxin',
-            admin: ['machangxin'],
-            id: (location.pathname).substring(0, 49), // Ensure uniqueness and length less than 50
-            distractionFreeMode: false // Facebook-like distraction free mode
-        })
+    <script type="application/javascript">
 
-        gitalk.render('gitalk-container')
-    }
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
-                
 
-                    
-                                
-</body>
 
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '39799e8a1db05650a9a6',
+        clientSecret: '7f09f55bdb26bd03e9aa2a08c1485eaa84f35d1d',
+        repo: 'machangxin.github.io',
+        owner: 'machangxin',
+        admin: ['machangxin'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
 </html>

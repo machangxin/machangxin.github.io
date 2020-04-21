@@ -1,812 +1,265 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    编译原理题解报告 | Aurora&#39;s blog
-</title>
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587448752776">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>编译原理题解报告 | Aurora&#39;s blog</title>
+<meta name="description" content="我是一只小小鸟">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587449381571">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://machangxin.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-</head>
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://machangxin.github.io">
-                <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587448752776" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    Aurora&#39;s blog
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://machangxin.github.io">
+        <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587449381571" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://machangxin.github.io">
+        <h1 class="site-title">Aurora&#39;s blog</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
-    <div class="i-card">
-        <b>标签：#
-        编译原理题解报告</b>
-    </div>
-    
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
         
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/49gvoHq33/">
-                        简单的代码生成程序
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-28</time>
-                    
-                        <a href="https://machangxin.github.io/tag/p65s-9oeF/" class="post-tag i-tag
-                            i-tag-">
-            #编译原理题解报告
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            通过三地址代码序列生成计算机的目标代码,在生成算法中,对寄存器的使用顺序为:寄存器中存有 &amp;gt; 空寄存器 &amp;gt; 内存中存有 &amp;gt; 以后不再使用 &amp;gt; 最远距离使用
-输入格式:
-给定输出的三地址代码的个数和寄存器的个数.所有的变量为大写字母,寄存器的数量不超过9
-输出格式:
-参照示例格式输出,不需要将最后的寄存器中的值写回内存
-不再使用变量不用写回内存
-输入样例:
-4 2
-T:=A-B
-U:=A-C
-V:=T+U
-W:=V+U
-输出样例:
-LD R0, A
-SUB R0, B
-LD R1, A
-SUB R1, C
-ADD R0, R1
-ADD R0, R1
-#include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-int n,m,nr=0;
-string s[100];
-char r[15];
-int inr(char c){
-    for(int i=0;i&amp;lt;m;i++)if(r[i]==c) return i;
-    return -1;
-}
-int gul(int pos,char c){
-    for(int i=pos;i&amp;lt;=n;i++)if(s[i][3]==c||s[i][5]==c)return i;
-    return n+1;
-}
-int getr(int pos){
-    if(nr&amp;lt;m) return nr++;
-    int ans=-1,maxx=-1;
-    for(int i=0;i&amp;lt;m;i++){
-        int ne= gul(pos,r[i]);
-        if(ne&amp;gt;maxx) maxx=ne,ans=i;
-    }
-    return ans;
-}
-void printop(char c){
-    if(c==&#39;+&#39;) printf(&amp;quot;ADD &amp;quot;);
-    if(c==&#39;*&#39;) printf(&amp;quot;MUL &amp;quot;);
-    if(c==&#39;-&#39;) printf(&amp;quot;SUB &amp;quot;);
-}
-void printr(char c){
-    int pos= inr(c);
-    if(pos==-1)printf(&amp;quot;%c\n&amp;quot;,c);
-    else printf(&amp;quot;R%d\n&amp;quot;,pos);
-}
-int main(){
-    cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;m;
-    for(int i=1;i&amp;lt;=n;i++) cin&amp;gt;&amp;gt;s[i];
-    for(int i=1;i&amp;lt;=n;i++){
-        int pos = inr(s[i][3]);
-        if(pos==-1){
-            pos=getr(i);
-            if(r[pos]&amp;amp;&amp;amp;gul(i,r[pos])&amp;lt;n+1)
-                printf(&amp;quot;ST R%d, %c\n&amp;quot;,pos,r[pos]);
-            printf(&amp;quot;LD R%d, %c\n&amp;quot;,pos,s[i][3]);
-            r[pos]=s[i][3];
-        }
-        printop(s[i][4]);
-        printf(&amp;quot;R%d, &amp;quot;,pos);
-        printr(s[i][5]);
-        r[pos]=s[i][0];
-    }
-}
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
 
 
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/49gvoHq33/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> 编译原理题解报告
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/49gvoHq33/">
+        <h2 class="post-title">简单的代码生成程序</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-28</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
             
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/d_CBRYM0E/">
-                        翻译布尔表达式
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-28</time>
-                    
-                        <a href="https://machangxin.github.io/tag/p65s-9oeF/" class="post-tag i-tag
-                            i-tag-primary">
-            #编译原理题解报告
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            大家都学过了布尔表达式的翻译，其中有一个拉链－回填技术，这次我们就练习这个技术。
-注意，在布尔表达式中，“并且”运算的优先级是要高于“或者”运算的。
-输入格式:
-输入为一行字符串，例如： a &amp;lt; b or c &amp;lt; d and e &amp;lt; f
-每个符号都用空格间隔。
-其中逻辑运算符包含 and 和 or ， 关系运算符包含 &amp;lt; 、&amp;gt; 、&amp;lt;= 、 &amp;gt;= 、== 、 != 。
-输出格式:
-假链跳到０，真链跳到１，表达式序号从100开始排。
-输入样例1:
-a &amp;lt; b or c &amp;lt; d and e &amp;lt; f
-输出样例1:
-100(j&amp;lt;,a,b,1)
-101(j,,,102)
-102(j&amp;lt;,c,d,104)
-103(j,,,0)
-104(j&amp;lt;,e,f,100)
-105(j,,,103)
-输入样例2:
-a &amp;lt; b and c &amp;gt; d or e &amp;gt; f
-输出样例2:
-100(j&amp;lt;,a,b,102)
-101(j,,,104)
-102(j&amp;gt;,c,d,1)
-103(j,,,101)
-104(j&amp;gt;,e,f,102)
-105(j,,,0)
-#include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-#define pr ans[1].c_str(),ans[0].c_str(),ans[2].c_str()
-int main()
-{
-    string x,xx,s[1000];
-    getline(cin,xx);
-    xx+=&amp;quot; end&amp;quot;;
-    int h=1,hh,ix=100,num=0,ff[1000],t=1,f=0,f2=0;
-    vector&amp;lt;string&amp;gt;ans;
-    bool flag=0;
-    stringstream ss(xx);
-    while(ss&amp;gt;&amp;gt;x)
-    {
-        s[++num]=x;
-    }
-    for(int i=1; i&amp;lt;=num; i++){
-        if(s[i]==&amp;quot;or&amp;quot;||s[i]==&amp;quot;and&amp;quot;)
-            h++;
-    }
-
-    for(int i=num; i&amp;gt;=1; i--)
-    {
-        if(s[i]==&amp;quot;or&amp;quot;)
-            flag=1,h--,hh=h;
-        else if(s[i]==&amp;quot;and&amp;quot;)
-        {
-            h--;
-            if(flag)
-            {
-                ff[i]=100+2*hh;
-            }
-        }
-    }
-    for(int i=1; i&amp;lt;=num; i++)
-    {
-        x=s[i];
-        if(x==&amp;quot;or&amp;quot;)
-        {
-            printf(&amp;quot;%d(j%s,%s,%s,%d)\n&amp;quot;,ix,pr,t);
-            t=ix++;
-            if(!f2)
-                printf(&amp;quot;%d(j,_,_,%d)\n&amp;quot;,ix,ix+1);
-            else
-                printf(&amp;quot;%d(j,_,_,%d)\n&amp;quot;,ix,f2),f2=0;
-            ix++;
-            ans.clear();
-        }
-        else if(x==&amp;quot;and&amp;quot;)
-        {
-            printf(&amp;quot;%d(j%s,%s,%s,%d)\n&amp;quot;,ix,pr,ix+2);
-            ix++;
-            if(!ff[i])
-                printf(&amp;quot;%d(j,_,_,%d)\n&amp;quot;,ix,f),f=ix;
-            else
-                printf(&amp;quot;%d(j,_,_,%d)\n&amp;quot;,ix,!f2? ff[i]:f2),f2=ix;
-            ix++;
-            ans.clear();
-        }
-        else if(x==&amp;quot;end&amp;quot;)
-        {
-            printf(&amp;quot;%d(j%s,%s,%s,%d)\n&amp;quot;,ix++,pr,t);
-            printf(&amp;quot;%d(j,_,_,%d)\n&amp;quot;,ix,f);
-        }
-        else
-            ans.push_back(x);
-    }
-}
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/d_CBRYM0E/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/15RsiSbeQ/">
-                        DAG图优化
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-28</time>
-                    
-                        <a href="https://machangxin.github.io/tag/p65s-9oeF/" class="post-tag i-tag
-                            i-tag-">
-            #编译原理题解报告
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            大家都学过了代码优化，其中有一个DAG优化，这次我们就练习这个操作。
-输入格式:
-输入第一行为一个整数ｎ(n &amp;lt; 100)，表示该组输入的表达式的个数。
-之后ｎ行为表达式，每个变量为一个字母，表达式仅包括二元运算 + - * / 。
-例如：A=B+C 。
-输出格式:
-通过构造DAG图，进行代码优化，只需要保留AB，删除无用变量，删除变量时，尽量保留最早出现的变量。
-PS:保证AB的值不同
-输入样例:
-3
-A=B+C
-B=B+B
-A=C+C
-输出样例:
-B=B+B
-A=C+C
-#include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-struct{
-    char id;
-    int l=-1,r=-1;
-    vector&amp;lt;char&amp;gt;v;
-}node[105],ll,rr;
-int n,cnt=0;
-string s,ans[100];
-bool f[100];
-bool find(int i,char c){
-    for(char j:node[i].v) if(j==c) return 1;
-    return 0;
-}
-int add(char c){
-    for(int i=cnt;i&amp;gt;=1;i--)
-        if(node[i].id==c||find(i,c)) return i;
-    node[++cnt].id=c;
-    return cnt;
-}
-void addf(char c,char op,int l,int r){
-    for(int i=cnt;i&amp;gt;=1;i--){
-        if(node[i].l==l&amp;amp;&amp;amp;node[i].r==r&amp;amp;&amp;amp;node[i].id==op){
-            node[i].v.push_back(c);
-            return ;
-        }
-    }
-    node[++cnt].id=op;
-    node[cnt].v.push_back(c);
-    node[cnt].l=l;
-    node[cnt].r=r;
-    return ;
-}
-void dfs(int i){
-    if(node[i].l!=-1){
-        f[i]=1;
-        dfs(node[i].l);
-        dfs(node[i].r);
-    }
-}
-int main(){
-    cin&amp;gt;&amp;gt;n;
-    while(n--){
-        cin&amp;gt;&amp;gt;s;
-        int l= add(s[2]),r = add(s[4]);
-        addf(s[0],s[3],l,r);
-    }
-    for(int i=1;i&amp;lt;=cnt;i++)
-    if(node[i].l!=-1){
-        ans[i]+=node[i].v[0];
-        ans[i]+=&#39;=&#39;;
-        ll=node[node[i].l];
-        rr=node[node[i].r];
-        ans[i]+=ll.v.size()? ll.v[0]:ll.id;
-        ans[i]+=node[i].id;
-        ans[i]+=rr.v.size()? rr.v[0]:rr.id;
-    }
-    for(int i=cnt;i&amp;gt;=1;i--){
-        if(ans[i][0]==&#39;A&#39;){
-            dfs(i);
-            break;
-        }
-    }
-
-    for(int i=cnt;i&amp;gt;=1;i--){
-        if(ans[i][0]==&#39;B&#39;){
-            dfs(i);
-            break;
-        }
-    }
-    for(int i=1;i&amp;lt;=cnt;i++)
-        if(f[i])
-        cout&amp;lt;&amp;lt;ans[i]&amp;lt;&amp;lt;endl;
-}
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/15RsiSbeQ/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/qb9rLP5a_/">
-                        小C语言--词法分析程序
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-28</time>
-                    
-                        <a href="https://machangxin.github.io/tag/p65s-9oeF/" class="post-tag i-tag
-                            i-tag-banana">
-            #编译原理题解报告
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            小C语言文法
-&amp;lt;程序&amp;gt;→(){&amp;lt;声明序列&amp;gt;&amp;lt;语句序列&amp;gt;}
-&amp;lt;声明序列&amp;gt;→&amp;lt;声明序列&amp;gt;&amp;lt;声明语句&amp;gt;|&amp;lt;声明语句&amp;gt;|&amp;lt;空&amp;gt;
-&amp;lt;声明语句&amp;gt;→&amp;lt;标识符表&amp;gt;;
-&amp;lt;标识符表&amp;gt;→&amp;lt;标识符&amp;gt;,&amp;lt;标识符表&amp;gt;|&amp;lt;标识符&amp;gt;
-&amp;lt;语句序列&amp;gt;→&amp;lt;语句序列&amp;gt;&amp;lt;语句&amp;gt;|&amp;lt;语句&amp;gt;
-&amp;lt;语句&amp;gt;→&amp;lt; if语句&amp;gt;|&amp;lt; while语句&amp;gt;|&amp;lt; for语句&amp;gt;|&amp;lt;复合语句&amp;gt;|&amp;lt;赋值语句&amp;gt;
-&amp;lt; if语句&amp;gt;→&amp;lt; if关键字&amp;gt;(&amp;lt;表达式&amp;gt;)&amp;lt;复合语句&amp;gt;|(&amp;lt;表达式&amp;gt;)&amp;lt;复合语句&amp;gt;&amp;lt; else关键字&amp;gt;&amp;lt;复合语句&amp;gt;
-&amp;lt; while语句&amp;gt;→&amp;lt; while关键字&amp;gt;(&amp;lt;表达式&amp;gt;)&amp;lt;复合语句&amp;gt;
-&amp;lt; for语句&amp;gt;→&amp;lt; for关键字&amp;gt;(&amp;lt;表达式&amp;gt;;&amp;lt;表达式&amp;gt;;&amp;lt;表达式&amp;gt;)&amp;lt;复合语句&amp;gt;
-&amp;lt;复合语句&amp;gt;→{&amp;lt;语句序列&amp;gt;}
-&amp;lt;赋值语句&amp;gt;→&amp;lt;表达式&amp;gt;;
-&amp;lt;表达式&amp;gt;→&amp;lt;标识符&amp;gt;=&amp;lt;算数表达式&amp;gt;|&amp;lt;布尔表达式&amp;gt;
-&amp;lt;布尔表达式&amp;gt;→&amp;lt;算数表达式&amp;gt; |&amp;lt;算数表达式&amp;gt;&amp;lt;关系运算符&amp;gt;&amp;lt;算数表达式&amp;gt;
-&amp;lt;关系运算符&amp;gt;→&amp;gt;|&amp;lt;|&amp;gt;=|&amp;lt;=|==|!=
-&amp;lt;算数表达式&amp;gt;→&amp;lt;算数表达式&amp;gt;+&amp;lt;项&amp;gt;|&amp;lt;算数表达式&amp;gt;-&amp;lt;项&amp;gt;|&amp;lt;项&amp;gt;
-&amp;lt;项&amp;gt;→&amp;lt;项&amp;gt;*&amp;lt;因子&amp;gt;|&amp;lt;项&amp;gt;/&amp;lt;因子&amp;gt;|&amp;lt;因子&amp;gt;
-&amp;lt;因子&amp;gt;→&amp;lt;标识符&amp;gt;|&amp;lt;无符号整数&amp;gt;|(&amp;lt;算数表达式&amp;gt;)
-&amp;lt;标识符&amp;gt;→&amp;lt;字母&amp;gt;|&amp;lt;标识符&amp;gt;&amp;lt;字母&amp;gt;|&amp;lt;标识符&amp;gt;&amp;lt;数字&amp;gt;
-&amp;lt;无符号整数&amp;gt;→&amp;lt;数字&amp;gt;|&amp;lt;无符号整数&amp;gt;&amp;lt;数字&amp;gt;
-&amp;lt;字母&amp;gt;→a|b|…|z|A|B|…|Z
-&amp;lt;数字&amp;gt;→0|1|2|3|4|5|6|7|8|9
-&amp;lt; main关键字&amp;gt;→main
-&amp;lt; if关键字&amp;gt;→if
-&amp;lt; else关键字&amp;gt;→else
-&amp;lt; for关键字&amp;gt;→for
-&amp;lt; while关键字&amp;gt;→while
-&amp;lt; int关键字&amp;gt;→int
-每行单词数不超过10个
-小C语言文法如上，现在我们对小C语言写的一个源程序进行词法分析，分析出关键字、自定义标识符、整数、界符和运算符。
-关键字：main if else for while int
-自定义标识符：除关键字外的标识符
-整数：无符号整数
-界符：{ } ( ) , ;
-运算符：= + - * / &amp;lt; &amp;lt;= &amp;gt; &amp;gt;= == !=
-输入格式:
-输入一个小C语言源程序，源程序长度不超过2000个字符，保证输入合法。
-输出格式:
-按照源程序中单词出现顺序输出，输出二元组形式的单词串。
-(单词种类,单词值)
-单词一共5个种类：
-关键字：用keyword表示
-自定义标识符：用identifier表示
-整数：用integer表示
-界符：用boundary表示
-运算符：用operator表示
-每种单词值用该单词的符号串表示。
-输入样例:
-main() 
-{
-    int a, b;
-    if(a == 10)
-    {
-        a = b;
-    }
-}
-
-输出样例:
-(keyword,main)
-(boundary,()
-(boundary,))
-(boundary,{)
-(keyword,int)
-(identifier,a)
-(boundary,,)
-(identifier,b)
-(boundary,;)
-(keyword,if)
-(boundary,()
-(identifier,a)
-(operator,==)
-(integer,10)
-(boundary,))
-(boundary,{)
-(identifier,a)
-(operator,=)
-(identifier,b)
-(boundary,;)
-(boundary,})
-(boundary,})
-
-#include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-map&amp;lt;char,bool&amp;gt;b,o;
-map&amp;lt;string,bool&amp;gt;key;
-void pd(string s){
-    if(s==&amp;quot;&amp;quot;||s==&amp;quot; &amp;quot;) return ;
-    if(s[0]&amp;gt;=48&amp;amp;&amp;amp;s[0]&amp;lt;=57)
-        printf(&amp;quot;(integer,%s)\n&amp;quot;,s.c_str());
-    else if(key[s]) printf(&amp;quot;(keyword,%s)\n&amp;quot;,s.c_str());
-        else printf(&amp;quot;(identifier,%s)\n&amp;quot;,s.c_str());
-}
-int main(){
-    char bo[]={&#39;{&#39;,&#39;}&#39;,&#39;(&#39;,&#39;)&#39;,&#39;,&#39;,&#39;;&#39;};
-    char op[]={&#39;/&#39;,&#39;*&#39;,&#39;-&#39;,&#39;+&#39;,&#39;=&#39;,&#39;&amp;lt;&#39;,&#39;&amp;gt;&#39;,&#39;!&#39;};
-    string k[]={&amp;quot;main&amp;quot;,&amp;quot;if&amp;quot;,&amp;quot;else&amp;quot;,&amp;quot;for&amp;quot;,&amp;quot;while&amp;quot;,&amp;quot;int&amp;quot;};
-    for(int i=0;i&amp;lt;6;i++) b[bo[i]]=1,key[k[i]]=1;
-    for(int i=0;i&amp;lt;8;i++) o[op[i]]=1;
-    string ss;
-    while(cin&amp;gt;&amp;gt;ss){
-        string s;
-        for(int i=0;i&amp;lt;ss.length();i++){
-            if(b[ss[i]]){
-                pd(s),s=&amp;quot;&amp;quot;;
-                printf(&amp;quot;(boundary,%c)\n&amp;quot;,ss[i]);
-            }
-            else if(o[ss[i]]){
-                pd(s),s=&amp;quot;&amp;quot;;
-                if(i+1&amp;lt;ss.length()&amp;amp;&amp;amp;ss[i+1]==&#39;=&#39;)
-                    printf(&amp;quot;(operator,%c%c)\n&amp;quot;,ss[i],ss[i+1]),i++;
-                else printf(&amp;quot;(operator,%c)\n&amp;quot;,ss[i]);
-            }
-            else s+=ss[i];
-        }
-        pd(s);
-
-    }
-}
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/qb9rLP5a_/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/cn0cfeQNa/">
-                        表达式语法分析——递归子程序法
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-28</time>
-                    
-                        <a href="https://machangxin.github.io/tag/p65s-9oeF/" class="post-tag i-tag
-                            i-tag-success">
-            #编译原理题解报告
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            递归子程序法是一种确定的自顶向下语法分析方法，要求文法是LL(1)文法。它的实现思想是对应文法中每个非终结符编写一个递归过程，每个过程的功能是识别由该非终结符推出的串，当某非终结符的产生式有多个候选式时能够按LL(1)形式唯一地确定选择某个候选式进行推导。请根据下面的表达式LL(1)文法，构造递归子程序，完成对表达式的语法分析。
-表达式文法如下：
-E→TG
-G→+TG | ε
-T→FS
-S→FS | ε
-F→(E) | i
-对于给定的输入串（长度不超过50个符号），请输出分析过程中用到的所有产生式，并指明该输入串是否为该文法能生成的表达式,输出共11行，前10行每行两个数据用空格隔开，表示推导时所用产生式顺序号（从0开始），最后一行是accept，表示i+ii是文法能生成的合法表达式。注：其中&amp;amp;符号代表文法中的ε符号。 例如：
-i+i*i是文法能生成的一个表达式,输出格式如下：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;i
-3 S--&amp;gt;&amp;amp;
-4 G--&amp;gt;+TG
-5 T--&amp;gt;FS
-6 F--&amp;gt;i
-7 S--&amp;gt;*FS
-8 F--&amp;gt;i
-9 S--&amp;gt;&amp;amp;
-10 G--&amp;gt;&amp;amp;
-accept
-i@i不是文法能生成的表达式，输出共5行，前5行每行两个数据用空格隔开，表示推导时所用产生式序号（从0开始），最后一行是error，表示i@i不是文法能生成的表达式。@不是合法的文法符号，输出格式举例：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;i
-3 S--&amp;gt;&amp;amp;
-4 G--&amp;gt;&amp;amp;
-error
-(i+i*i不是文法能生成的表达式，存在括号不匹配的语法错误，输出格式举例：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;(E)
-3 E--&amp;gt;TG
-4 T--&amp;gt;FS
-5 F--&amp;gt;i
-6 S--&amp;gt;&amp;amp;
-7 G--&amp;gt;+TG
-8 T--&amp;gt;FS
-9 F--&amp;gt;i
-10 S--&amp;gt;*FS
-11 F--&amp;gt;i
-12 S--&amp;gt;&amp;amp;
-13 G--&amp;gt;&amp;amp;
-error
-输入格式:
-输入数据只有一行，代表待分析的符号串，以#号结束。
-输出格式:
-输出推导过程中所有的产生式，按照使用顺序给出。输出详细说明见题目描述中的例子。
-输入样例:
-i+i*i#
-输出样例:
-在这里给出相应的输出。例如：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;i
-3 S--&amp;gt;&amp;amp;
-4 G--&amp;gt;+TG
-5 T--&amp;gt;FS
-6 F--&amp;gt;i
-7 S--&amp;gt;*FS
-8 F--&amp;gt;i
-9 S--&amp;gt;&amp;amp;
-10 G--&amp;gt;&amp;amp;
-accept
-#include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-int ff=0,num=0;
-string s;
-void e();
-void g();
-void t();
-void S();
-void f();
-void e()
-{
-    if(s[ff]==&#39;i&#39;||s[ff]==&#39;(&#39;)
-        printf(&amp;quot;%d E--&amp;gt;TG\n&amp;quot;,num++);
-    t(),g();
-}
-void t()
-{
-    if(s[ff]==&#39;i&#39;||s[ff]==&#39;(&#39;)
-        printf(&amp;quot;%d T--&amp;gt;FS\n&amp;quot;,num++);
-    f(),S();
-}
-void g()
-{
-    if(s[ff]==&#39;+&#39;)
-        printf(&amp;quot;%d G--&amp;gt;+TG\n&amp;quot;,num++),ff++,t(),g();
-    else
-        printf(&amp;quot;%d G--&amp;gt;&amp;amp;\n&amp;quot;,num++);
-}
-void S()
-{
-    if(s[ff]==&#39;*&#39;)
-        printf(&amp;quot;%d S--&amp;gt;*FS\n&amp;quot;,num++),ff++,f(),S();
-    else
-        printf(&amp;quot;%d S--&amp;gt;&amp;amp;\n&amp;quot;,num++);
-}
-void f()
-{
-    if(s[ff]==&#39;(&#39;)
-    {
-        printf(&amp;quot;%d F--&amp;gt;(E)\n&amp;quot;,num++),ff++;
-        e();
-        if(s[ff]==&#39;)&#39;)
-            ff++;
-        else
-            printf(&amp;quot;error\n&amp;quot;),exit(0);
-    }
-    else if(s[ff]==&#39;i&#39;)
-        printf(&amp;quot;%d F--&amp;gt;i\n&amp;quot;,num++),ff++;
-    else
-        printf(&amp;quot;error\n&amp;quot;),exit(0);
-}
-
-int main()
-{
-    cin&amp;gt;&amp;gt;s;
-    if(s==&amp;quot;#&amp;quot;)
-    {
-        printf(&amp;quot;error\n&amp;quot;);
-        return 0;
-    }
-    e();
-    if(s[ff]==&#39;#&#39;)
-        printf(&amp;quot;accept\n&amp;quot;);
-    else
-        printf(&amp;quot;error\n&amp;quot;);
-}
-
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/cn0cfeQNa/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
+              <a href="https://machangxin.github.io/tag/p65s-9oeF/">
+                编译原理题解报告
                 
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
-
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://machangxin.github.io/images/avatar.png?v=1587448752776)">
-        </div>
-        <h1 class="id_card-title">
-            Aurora&#39;s blog
-        </h1>
-        <h2 class="id_card-description">
-            我是一只小小鸟
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
+              </a>
             
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
+          </span>
+        
+      </div>
     </div>
     
+  </section>
 
-                        <!-- 公告栏 -->
-                        
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/d_CBRYM0E/">
+        <h2 class="post-title">翻译布尔表达式</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-28</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://machangxin.github.io/tag/p65s-9oeF/">
+                编译原理题解报告
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
 
-                </div>
-            </div>
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/15RsiSbeQ/">
+        <h2 class="post-title">DAG图优化</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-28</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://machangxin.github.io/tag/p65s-9oeF/">
+                编译原理题解报告
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/qb9rLP5a_/">
+        <h2 class="post-title">小C语言--词法分析程序</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-28</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://machangxin.github.io/tag/p65s-9oeF/">
+                编译原理题解报告
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/cn0cfeQNa/">
+        <h2 class="post-title">表达式语法分析——递归子程序法</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-28</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://machangxin.github.io/tag/p65s-9oeF/">
+                编译原理题解报告
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
 
 
-
-            <div class="site-footer">
-   | 
-  <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+<div class="pagination-container">
+  
+  
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">我是一只小小鸟</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
+    <script type="application/javascript">
 
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>

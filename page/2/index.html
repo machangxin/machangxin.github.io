@@ -1,521 +1,248 @@
-<html>
 
-<head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>
-    Aurora&#39;s blog
-</title>
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587448752776">
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
-<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Aurora&#39;s blog</title>
+<meta name="description" content="我是一只小小鸟">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587449381571">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
-<!-- js -->
-<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://machangxin.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
-</head>
 
-<body>
-    <div class="main">
-        <div class="header">
-    <div class="nav">
-        <div class="logo">
-            <a href="https://machangxin.github.io">
-                <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587448752776" alt="">
-            </a>
-            <div class="site-title">
-                <h1>
-                    Aurora&#39;s blog
-                </h1>
-            </div>
-        </div>
-        <span class="menu-btn fa fa-align-justify"></span>
-        <div class="menu-container">
-            <ul>
-                
-                    
-                            <li>
-                                <a href="/" class="menu">
-                                    首页
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/archives" class="menu">
-                                    归档
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/tags" class="menu">
-                                    标签
-                                </a>
-                            </li>
-                            
-                                
-                    
-                            <li>
-                                <a href="/post/about" class="menu">
-                                    关于
-                                </a>
-                            </li>
-                            
-                                
-            </ul>
-        </div>
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://machangxin.github.io">
+        <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587449381571" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://machangxin.github.io">
+        <h1 class="site-title">Aurora&#39;s blog</h1>
+      </a>
     </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $(".menu-btn").click(function() {
-            $(".menu-container").slideToggle();
-        });
-        $(window).resize(function() {
-
-            if (window.matchMedia('(min-width: 960px)').matches) {
-                $(".menu-container").css('display', 'block')
-            } else {
-                $(".menu-container").css('display', 'none')
-            }
-
-        });
-    });
-</script>
-
-            <div id="main-content" class="post-container main-container">
-                <div id="content" class="main-container-left">
-                    
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
         
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/cn0cfeQNa/">
-                        表达式语法分析——递归子程序法
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-28</time>
-                    
-                        <a href="https://machangxin.github.io/tag/p65s-9oeF/" class="post-tag i-tag
-                            i-tag-">
-            #编译原理题解报告
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            递归子程序法是一种确定的自顶向下语法分析方法，要求文法是LL(1)文法。它的实现思想是对应文法中每个非终结符编写一个递归过程，每个过程的功能是识别由该非终结符推出的串，当某非终结符的产生式有多个候选式时能够按LL(1)形式唯一地确定选择某个候选式进行推导。请根据下面的表达式LL(1)文法，构造递归子程序，完成对表达式的语法分析。
-表达式文法如下：
-E→TG
-G→+TG | ε
-T→FS
-S→FS | ε
-F→(E) | i
-对于给定的输入串（长度不超过50个符号），请输出分析过程中用到的所有产生式，并指明该输入串是否为该文法能生成的表达式,输出共11行，前10行每行两个数据用空格隔开，表示推导时所用产生式顺序号（从0开始），最后一行是accept，表示i+ii是文法能生成的合法表达式。注：其中&amp;amp;符号代表文法中的ε符号。 例如：
-i+i*i是文法能生成的一个表达式,输出格式如下：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;i
-3 S--&amp;gt;&amp;amp;
-4 G--&amp;gt;+TG
-5 T--&amp;gt;FS
-6 F--&amp;gt;i
-7 S--&amp;gt;*FS
-8 F--&amp;gt;i
-9 S--&amp;gt;&amp;amp;
-10 G--&amp;gt;&amp;amp;
-accept
-i@i不是文法能生成的表达式，输出共5行，前5行每行两个数据用空格隔开，表示推导时所用产生式序号（从0开始），最后一行是error，表示i@i不是文法能生成的表达式。@不是合法的文法符号，输出格式举例：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;i
-3 S--&amp;gt;&amp;amp;
-4 G--&amp;gt;&amp;amp;
-error
-(i+i*i不是文法能生成的表达式，存在括号不匹配的语法错误，输出格式举例：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;(E)
-3 E--&amp;gt;TG
-4 T--&amp;gt;FS
-5 F--&amp;gt;i
-6 S--&amp;gt;&amp;amp;
-7 G--&amp;gt;+TG
-8 T--&amp;gt;FS
-9 F--&amp;gt;i
-10 S--&amp;gt;*FS
-11 F--&amp;gt;i
-12 S--&amp;gt;&amp;amp;
-13 G--&amp;gt;&amp;amp;
-error
-输入格式:
-输入数据只有一行，代表待分析的符号串，以#号结束。
-输出格式:
-输出推导过程中所有的产生式，按照使用顺序给出。输出详细说明见题目描述中的例子。
-输入样例:
-i+i*i#
-输出样例:
-在这里给出相应的输出。例如：
-0 E--&amp;gt;TG
-1 T--&amp;gt;FS
-2 F--&amp;gt;i
-3 S--&amp;gt;&amp;amp;
-4 G--&amp;gt;+TG
-5 T--&amp;gt;FS
-6 F--&amp;gt;i
-7 S--&amp;gt;*FS
-8 F--&amp;gt;i
-9 S--&amp;gt;&amp;amp;
-10 G--&amp;gt;&amp;amp;
-accept
-#include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-int ff=0,num=0;
-string s;
-void e();
-void g();
-void t();
-void S();
-void f();
-void e()
-{
-    if(s[ff]==&#39;i&#39;||s[ff]==&#39;(&#39;)
-        printf(&amp;quot;%d E--&amp;gt;TG\n&amp;quot;,num++);
-    t(),g();
-}
-void t()
-{
-    if(s[ff]==&#39;i&#39;||s[ff]==&#39;(&#39;)
-        printf(&amp;quot;%d T--&amp;gt;FS\n&amp;quot;,num++);
-    f(),S();
-}
-void g()
-{
-    if(s[ff]==&#39;+&#39;)
-        printf(&amp;quot;%d G--&amp;gt;+TG\n&amp;quot;,num++),ff++,t(),g();
-    else
-        printf(&amp;quot;%d G--&amp;gt;&amp;amp;\n&amp;quot;,num++);
-}
-void S()
-{
-    if(s[ff]==&#39;*&#39;)
-        printf(&amp;quot;%d S--&amp;gt;*FS\n&amp;quot;,num++),ff++,f(),S();
-    else
-        printf(&amp;quot;%d S--&amp;gt;&amp;amp;\n&amp;quot;,num++);
-}
-void f()
-{
-    if(s[ff]==&#39;(&#39;)
-    {
-        printf(&amp;quot;%d F--&amp;gt;(E)\n&amp;quot;,num++),ff++;
-        e();
-        if(s[ff]==&#39;)&#39;)
-            ff++;
-        else
-            printf(&amp;quot;error\n&amp;quot;),exit(0);
-    }
-    else if(s[ff]==&#39;i&#39;)
-        printf(&amp;quot;%d F--&amp;gt;i\n&amp;quot;,num++),ff++;
-    else
-        printf(&amp;quot;error\n&amp;quot;),exit(0);
-}
-
-int main()
-{
-    cin&amp;gt;&amp;gt;s;
-    if(s==&amp;quot;#&amp;quot;)
-    {
-        printf(&amp;quot;error\n&amp;quot;);
-        return 0;
-    }
-    e();
-    if(s[ff]==&#39;#&#39;)
-        printf(&amp;quot;accept\n&amp;quot;);
-    else
-        printf(&amp;quot;error\n&amp;quot;);
-}
-
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/cn0cfeQNa/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/JAVAlittle  knowledge/">
-                        JAVA杂七杂八小知识
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-22</time>
-                    
-                        <a href="https://machangxin.github.io/tag/X4rJbKKsJ/" class="post-tag i-tag
-                            i-tag-">
-            #JAVA
-        </a>
-                        
-                        <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="post-tag i-tag
-                            i-tag-success">
-            #杂七杂八
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            next与nextLine的区别
-next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符
-jdbc连接MySQL数据库
-// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
-    static final String JDBC_DRIVER = &amp;quot;com.mysql.cj.jdbc.Driver&amp;quot;;  
-    static final String DB_URL = &amp;quot;jdbc:mysql://localhost:3306/RUNOOB?useSSL=false&amp;amp;serverTimezone=UTC&amp;quot;;
-    // 数据库的用户名与密码，需要根据自己的设置
-    static String USER = null;
-    static String PASS = null;
-    static Connection conn = null;
-    static Statement stmt = null;
-    public static void main() throws SQLException {
-    	Scanner cin = new Scanner(System.in);
-        try{
-            // 注册 JDBC 驱动
-            Class.forName(JDBC_DRIVER);
-            // 打开链接
-            if(USER.equals(&amp;quot;root&amp;quot;)&amp;amp;&amp;amp;PASS.equals(&amp;quot;123456&amp;quot;)) {
-            	conn = DriverManager.getConnection(DB_URL,USER,PASS);
-            }
-        }catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-零碎
-(1)idea中如果用GUI Form生成界面的话,在其文件中用Alt+insert生成代码
-(3)使用textarea时，使用append函数可能无法显示，此时需要paintImmediately函数
-JTextArea2.append(&amp;quot;进程2输出完毕！\n&amp;quot;);//紧跟在此后面加上下面语句即可
-JTextArea2.paintImmediately(JTextArea2.getBounds());
-
-(4)ButtonGroup中有许多RadioButton,清除ButtonGroup的选择状态
-ButtonGroup group2 = new ButtonGroup ();
-group2.add (Fcfs);
-group2.add (Spf);
-group2.clearSelection();
-
-(5) JAVA中一个字符串重复n遍
-String str = &amp;quot;abc&amp;quot;;
-String repeated = str.repeat(n);//n为重复次数
-
-Java消息提示框JOptionPane
-JOptionPane.showMessageDialog(null, &amp;quot;我是普通提示框！╮(╯▽╰)╭&amp;quot;);  
-
-
-JOptionPane.showMessageDialog(null, &amp;quot;我是警告提示框！╮(╯▽╰)╭&amp;quot;, &amp;quot;标题&amp;quot;,JOptionPane.WARNING_MESSAGE);  
-
-
-JOptionPane.showMessageDialog(null, &amp;quot;我是错误提示框！╮(╯▽╰)╭&amp;quot;, &amp;quot;标题&amp;quot;,JOptionPane.ERROR_MESSAGE); 
-
-
-JOptionPane.showMessageDialog(null, &amp;quot;我是最基本提示框！╮(╯▽╰)╭&amp;quot;, &amp;quot;标题&amp;quot;,JOptionPane.PLAIN_MESSAGE);
-
-
-int n = JOptionPane.showConfirmDialog(null, &amp;quot;你会了吗?&amp;quot;, &amp;quot;标题&amp;quot;,JOptionPane.YES_NO_OPTION); //返回值为0或1
-
-
-Object[] options ={ &amp;quot;必须是&amp;quot;, &amp;quot;当然是&amp;quot; };  //自定义按钮上的文字
-int m = JOptionPane.showOptionDialog(null, &amp;quot;钓鱼岛是中国的吗？&amp;quot;, &amp;quot;标题&amp;quot;,JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);//返回值为0或1  
-
-
-Object[] obj2 ={ &amp;quot;路人甲&amp;quot;, &amp;quot;路人乙&amp;quot;, &amp;quot;路人丙&amp;quot; };  
-String s = (String) JOptionPane.showInputDialog(null,&amp;quot;请选择你的身份:\n&amp;quot;, &amp;quot;身份&amp;quot;, JOptionPane.PLAIN_MESSAGE, new ImageIcon(&amp;quot;icon.png&amp;quot;), obj2, &amp;quot;足球&amp;quot;);
-
-
-String s = JOptionPane.showInputDialog(null,&amp;quot;请输入：\n&amp;quot;,&amp;quot;title&amp;quot;,JOptionPane.PLAIN_MESSAGE); 
-
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/JAVAlittle  knowledge/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">
-                        洛谷 P1106 删数问题
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-11-21</time>
-                    
-                        <a href="https://machangxin.github.io/tag/v9yI8FoC7/" class="post-tag i-tag
-                            i-tag-">
-            #刷题
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            题目描述
-键盘输入一个高精度的正整数N（不超过250位） ，去掉其中任意k个数字后剩下的数字按原左右次序将组成一个新的正整数。编程对给定的N和k，寻找一种方案使得剩下的数字组成的新数最小。
-输入格式
-n (高精度的正整数) k(需要删除的数字个数)
-输出格式
-最后剩下的最小数。
-输入
-175438
-4
-输出
-13
-
-#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理
-include&amp;lt;bits/stdc++.h&amp;gt;
-using namespace std;
-int main(){
-    string n;
-    int k;
-    cin&amp;gt;&amp;gt;n&amp;gt;&amp;gt;k;
-    int m=0;
-    for(int i=0; i&amp;lt;n.length(); i++)
-        if(n[i]&amp;gt;n[i+1]&amp;amp;&amp;amp;m&amp;lt;k){
-            n.erase(i,1);
-            m++;
-            i=-1;
-        }
-    while(n[0]==&#39;0&#39;)n.erase(0,1);
-    n.length()!=0? cout&amp;lt;&amp;lt;n.substr(0,n.length()-(k-m))&amp;lt;&amp;lt;endl:cout&amp;lt;&amp;lt;&amp;quot;0&amp;quot;&amp;lt;&amp;lt;endl;
-}
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-            <article class="post i-card">
-                <h2 class="post-title">
-                    <a href="https://machangxin.github.io/post/CmnstO3Qf/">
-                        JAVA SWING中使用系统风格：
-                    </a>
-                </h2>
-                <div class="post-info">
-                    <time class="post-time">2019-10-24</time>
-                    
-                        <a href="https://machangxin.github.io/tag/X4rJbKKsJ/" class="post-tag i-tag
-                            i-tag-success">
-            #JAVA
-        </a>
-                        
-                        <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="post-tag i-tag
-                            i-tag-info">
-            #杂七杂八
-        </a>
-                        
-                </div>
-                <div class="post-article">
-                    
-                            <div class="post-content">
-                                
-                                        <div class="post-content-content">
-                                            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-
-
-                                        </div>
-                                        
-                                            <a class="btn btn-text" href="https://machangxin.github.io/post/CmnstO3Qf/">Read More ~</a>
-                            </div>
-                </div>
-            </article>
-            
-                <!-- 翻页 -->
-                
-    <div class="pagination-container">
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
         
-            <a href="https://machangxin.github.io/" class="page-btn btn">上一页</a>
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/cn0cfeQNa/">
+        <h2 class="post-title">表达式语法分析——递归子程序法</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-28</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
             
+              <a href="https://machangxin.github.io/tag/p65s-9oeF/">
+                编译原理题解报告
                 
+              </a>
+            
+          </span>
+        
+      </div>
     </div>
     
-                </div>
-                <!--  -->
-                <div class="main-container-middle"></div>
-                <!--  -->
-                <div id="sidebar" class="main-container-right">
+  </section>
 
-                    <!-- 个人信息 -->
-                    
-    <div class="id_card i-card">
-        <div class="id_card-avatar" style="background-image: url(https://machangxin.github.io/images/avatar.png?v=1587448752776)">
-        </div>
-        <h1 class="id_card-title">
-            Aurora&#39;s blog
-        </h1>
-        <h2 class="id_card-description">
-            我是一只小小鸟
-        </h2>
-        <!--  -->
-        <div class="id_card-sns">
-            <!-- github -->
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/JAVAlittle  knowledge/">
+        <h2 class="post-title">JAVA杂七杂八小知识</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-22</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
             
-                    <!-- twitter -->
-                    
-                            <!-- weibo -->
-                            
-                                    <!-- facebook -->
-                                    
-
-        </div>
+              <a href="https://machangxin.github.io/tag/X4rJbKKsJ/">
+                JAVA
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://machangxin.github.io/tag/KnUv2qrsa/">
+                杂七杂八
+                
+              </a>
+            
+          </span>
+        
+      </div>
     </div>
     
+  </section>
 
-                        <!-- 公告栏 -->
-                        
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">
+        <h2 class="post-title">洛谷 P1106 删数问题</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-11-21</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://machangxin.github.io/tag/v9yI8FoC7/">
+                刷题
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
 
-                </div>
-            </div>
+<section class="post-item">
+    <div class="content">
+      <a href="https://machangxin.github.io/post/CmnstO3Qf/">
+        <h2 class="post-title">JAVA SWING中使用系统风格：</h2>
+      </a>
+      <div class="post-abstract">
+        
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-10-24</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://machangxin.github.io/tag/X4rJbKKsJ/">
+                JAVA
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://machangxin.github.io/tag/KnUv2qrsa/">
+                杂七杂八
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
 
 
-
-            <div class="site-footer">
-   | 
-  <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+<div class="pagination-container">
+  
+    <a href="https://machangxin.github.io/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">我是一只小小鸟</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
 
     </div>
-    <script>
-        $('#sidebar').stickySidebar({
-            topSpacing: 80,
-            // bottomSpacing: 60
-        });
-    </script>
-</body>
+    <script type="application/javascript">
 
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
 </html>
