@@ -1,15 +1,18 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
+    
+<meta charset="utf-8" >
 
 <title>JAVA杂七杂八小知识 | Aurora&#39;s blog</title>
 <meta name="description" content="我是一只小小鸟">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587449892627">
+<link rel="shortcut icon" href="https://machangxin.github.io/favicon.ico?v=1587450925101">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://machangxin.github.io/styles/main.css">
 
@@ -24,98 +27,89 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123761131-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-123761131-1');
-</script>
 
 
   </head>
   <body>
     <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://machangxin.github.io">
-        <img src="https://machangxin.github.io/images/avatar.png?v=1587449892627" class="site-logo">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://machangxin.github.io">
+        <img class="avatar" src="https://machangxin.github.io/images/avatar.png?v=1587450925101" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://machangxin.github.io">
         <h1 class="site-title">Aurora&#39;s blog</h1>
       </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
     </div>
-    <div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
         
-          <a href="/" class="site-nav">
+          <a href="/" class="menu purple-link">
             首页
           </a>
         
       
         
-          <a href="/archives" class="site-nav">
+          <a href="/archives" class="menu purple-link">
             归档
           </a>
         
       
         
-          <a href="/tags" class="site-nav">
+          <a href="/tags" class="menu purple-link">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="site-nav">
+          <a href="/post/about" class="menu purple-link">
             关于
           </a>
         
       
     </div>
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
-      
-        
-          <a class="social-link" href="https://github.com/machangxin" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    </div>
-    <div class="site-description">
-      我是一只小小鸟
-    </div>
-    <div class="site-footer">
-       | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
-    </div>
-  </div>
-</div>
+</transition>
 
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">JAVA杂七杂八小知识</h2>
-            <div class="post-date">2019-11-22</div>
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">JAVA杂七杂八小知识</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-11-22</span>
             
-            <div class="post-content">
-              <h1 id="next与nextline的区别">next与nextLine的区别</h1>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://machangxin.github.io/tag/X4rJbKKsJ/">
+                    JAVA
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://machangxin.github.io/tag/KnUv2qrsa/">
+                    杂七杂八
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="next与nextline的区别">next与nextLine的区别</h1>
 <p>next()一定要读取到有效字符后才可以结束输入，对输入有效字符之前遇到的空格键、Tab键或Enter键等结束符，next()方法会自动将其去掉，只有在输入有效字符之后，next()方法才将其后输入的空格键、Tab键或Enter键等视为分隔符或结束符。简单地说，next()查找并返回来自此扫描器的下一个完整标记。完整标记的前后是与分隔模式匹配的输入信息，所以next方法不能得到带空格的字符串。而nextLine()方法的结束符只是Enter键，即nextLine()方法返回的是Enter键之前的所有字符</p>
 <h1 id="jdbc连接mysql数据库">jdbc连接MySQL数据库</h1>
 <pre><code>// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL
@@ -184,50 +178,49 @@ String s = (String) JOptionPane.showInputDialog(null,&quot;请选择你的身份
 </code></pre>
 <figure data-type="image" tabindex="8"><img src="https://cdn.jsdelivr.net/gh/machangxin/Pic/img/input.jpg" alt="" loading="lazy"></figure>
 
-            </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://machangxin.github.io/tag/X4rJbKKsJ/" class="tag">
-                    JAVA
-                  </a>
-                
-                  <a href="https://machangxin.github.io/tag/KnUv2qrsa/" class="tag">
-                    杂七杂八
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">
-                  <h3 class="post-title">
-                    洛谷 P1106 删数问题
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
           </div>
-
         </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">
+              <h3 class="post-title">
+                下一篇：洛谷 P1106 删数问题
+              </h3>
+            </a>
+          </div>
+          
       </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">我是一只小小鸟</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+   | <a class="rss" href="https://machangxin.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
     </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-
-<script type="application/javascript">
-
-AOS.init();
+    <script type="application/javascript">
 
 hljs.initHighlightingOnLoad()
 
