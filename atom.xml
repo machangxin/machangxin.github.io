@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://machangxin.github.io</id>
+    <id>http://machangxin.github.io</id>
     <title>Aurora&apos;s blog</title>
-    <updated>2020-04-21T01:46:03.501Z</updated>
+    <updated>2020-04-21T01:48:50.556Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://machangxin.github.io"/>
-    <link rel="self" href="https://machangxin.github.io/atom.xml"/>
+    <link rel="alternate" href="http://machangxin.github.io"/>
+    <link rel="self" href="http://machangxin.github.io/atom.xml"/>
     <subtitle>我是一只小小鸟</subtitle>
-    <logo>https://machangxin.github.io/images/avatar.png</logo>
-    <icon>https://machangxin.github.io/favicon.ico</icon>
+    <logo>http://machangxin.github.io/images/avatar.png</logo>
+    <icon>http://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Aurora&apos;s blog</rights>
     <entry>
         <title type="html"><![CDATA[ asdasda]]></title>
-        <id>https://machangxin.github.io/post/bDSoNI3Co/</id>
-        <link href="https://machangxin.github.io/post/bDSoNI3Co/">
+        <id>http://machangxin.github.io/post/bDSoNI3Co/</id>
+        <link href="http://machangxin.github.io/post/bDSoNI3Co/">
         </link>
         <updated>2020-04-21T01:28:30.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[缺一行的范德蒙德行列式如何计算]]></title>
-        <id>https://machangxin.github.io/post/pnmmNP9I6/</id>
-        <link href="https://machangxin.github.io/post/pnmmNP9I6/">
+        <id>http://machangxin.github.io/post/pnmmNP9I6/</id>
+        <link href="http://machangxin.github.io/post/pnmmNP9I6/">
         </link>
         <updated>2020-03-05T14:35:47.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[python程序打包成exe]]></title>
-        <id>https://machangxin.github.io/post/BWvIospQx/</id>
-        <link href="https://machangxin.github.io/post/BWvIospQx/">
+        <id>http://machangxin.github.io/post/BWvIospQx/</id>
+        <link href="http://machangxin.github.io/post/BWvIospQx/">
         </link>
         <updated>2020-03-05T03:54:49.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[软件项目管理案例教程 第4版 课后习题答案]]></title>
-        <id>https://machangxin.github.io/post/ix_cAwPuX/</id>
-        <link href="https://machangxin.github.io/post/ix_cAwPuX/">
+        <id>http://machangxin.github.io/post/ix_cAwPuX/</id>
+        <link href="http://machangxin.github.io/post/ix_cAwPuX/">
         </link>
         <updated>2020-03-05T02:09:38.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[用input输入复制的文件地址时，字符串首部可能出现\u202A]]></title>
-        <id>https://machangxin.github.io/post/rqPWYQJ_s/</id>
-        <link href="https://machangxin.github.io/post/rqPWYQJ_s/">
+        <id>http://machangxin.github.io/post/rqPWYQJ_s/</id>
+        <link href="http://machangxin.github.io/post/rqPWYQJ_s/">
         </link>
         <updated>2020-03-04T12:57:06.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Windows系统下使用Vmware虚拟Mac OS]]></title>
-        <id>https://machangxin.github.io/post/oYoEE1NnA/</id>
-        <link href="https://machangxin.github.io/post/oYoEE1NnA/">
+        <id>http://machangxin.github.io/post/oYoEE1NnA/</id>
+        <link href="http://machangxin.github.io/post/oYoEE1NnA/">
         </link>
         <updated>2020-01-15T03:02:52.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Python杂七杂八小知识]]></title>
-        <id>https://machangxin.github.io/post/kyNXVkSQo/</id>
-        <link href="https://machangxin.github.io/post/kyNXVkSQo/">
+        <id>http://machangxin.github.io/post/kyNXVkSQo/</id>
+        <link href="http://machangxin.github.io/post/kyNXVkSQo/">
         </link>
         <updated>2019-12-01T07:45:03.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[简单的代码生成程序]]></title>
-        <id>https://machangxin.github.io/post/49gvoHq33/</id>
-        <link href="https://machangxin.github.io/post/49gvoHq33/">
+        <id>http://machangxin.github.io/post/49gvoHq33/</id>
+        <link href="http://machangxin.github.io/post/49gvoHq33/">
         </link>
         <updated>2019-11-28T03:09:27.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[翻译布尔表达式]]></title>
-        <id>https://machangxin.github.io/post/d_CBRYM0E/</id>
-        <link href="https://machangxin.github.io/post/d_CBRYM0E/">
+        <id>http://machangxin.github.io/post/d_CBRYM0E/</id>
+        <link href="http://machangxin.github.io/post/d_CBRYM0E/">
         </link>
         <updated>2019-11-28T03:08:32.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[DAG图优化]]></title>
-        <id>https://machangxin.github.io/post/15RsiSbeQ/</id>
-        <link href="https://machangxin.github.io/post/15RsiSbeQ/">
+        <id>http://machangxin.github.io/post/15RsiSbeQ/</id>
+        <link href="http://machangxin.github.io/post/15RsiSbeQ/">
         </link>
         <updated>2019-11-28T03:07:08.000Z</updated>
     </entry>
