@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Aurora&apos;s blog</title>
-    <updated>2020-05-20T06:46:22.257Z</updated>
+    <updated>2020-06-11T15:06:26.142Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
     <logo>https://machangxin.github.io/images/avatar.png</logo>
     <icon>https://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Aurora&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[v姐词汇周day1]]></title>
+        <id>https://machangxin.github.io/post/oCfnJUAPm/</id>
+        <link href="https://machangxin.github.io/post/oCfnJUAPm/">
+        </link>
+        <updated>2020-06-11T15:04:48.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[安卓大作业中遇到的问题]]></title>
         <id>https://machangxin.github.io/post/kP-BnDCmC/</id>
@@ -71,12 +78,5 @@
         <link href="https://machangxin.github.io/post/d_CBRYM0E/">
         </link>
         <updated>2019-11-28T03:08:32.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[DAG图优化]]></title>
-        <id>https://machangxin.github.io/post/15RsiSbeQ/</id>
-        <link href="https://machangxin.github.io/post/15RsiSbeQ/">
-        </link>
-        <updated>2019-11-28T03:07:08.000Z</updated>
     </entry>
 </feed>
