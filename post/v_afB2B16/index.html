@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                洛谷 P1106 删数问题
+                                王道408错题集
                             </h1>
                             
                                 <!--en-->
@@ -183,17 +183,19 @@
                                         Aurora's blog
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2019-11-21</a>
+                                Date: <a href="#">2020-06-13</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">1.1
+                                    href="#">0.8
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">252</a></span>
+                                    <span class="post-words">words:<a href="#">176</a></span>
                                     
                                         <span class="post-category">
                                 Category:
                                 
-                                <a href="https://machangxin.github.io/tag/v9yI8FoC7/">刷题</a>
+                                <a href="https://machangxin.github.io/tag/7qbJ3c40A/">408</a>
+                                
+                                <a href="https://machangxin.github.io/tag/sViDUM18K/">考研</a>
                                 
                             </span>
                                         
@@ -205,41 +207,43 @@
                         </header>
                         
                         <div class="post-content">
-                            <p><strong>题目描述</strong><br>
-键盘输入一个高精度的正整数N（不超过250位） ，去掉其中任意k个数字后剩下的数字按原左右次序将组成一个新的正整数。编程对给定的N和k，寻找一种方案使得剩下的数字组成的新数最小。</p>
-<p><strong>输入格式</strong><br>
-n (高精度的正整数) k(需要删除的数字个数)</p>
-<p><strong>输出格式</strong><br>
-最后剩下的最小数。</p>
-<p><strong>输入</strong><br>
-175438<br>
-4<br>
-<strong>输出</strong><br>
-13</p>
-<hr>
-<pre><code>#删除逆序对，例如175，（7,5）是逆序对，那么则删除7，如果无逆序对就直接删最后面的数，注意前导0处理
-include&lt;bits/stdc++.h&gt;
-using namespace std;
-int main(){
-    string n;
-    int k;
-    cin&gt;&gt;n&gt;&gt;k;
-    int m=0;
-    for(int i=0; i&lt;n.length(); i++)
-        if(n[i]&gt;n[i+1]&amp;&amp;m&lt;k){
-            n.erase(i,1);
-            m++;
-            i=-1;
-        }
-    while(n[0]=='0')n.erase(0,1);
-    n.length()!=0? cout&lt;&lt;n.substr(0,n.length()-(k-m))&lt;&lt;endl:cout&lt;&lt;&quot;0&quot;&lt;&lt;endl;
-}
-</code></pre>
+                            <h1 id="线性表">线性表</h1>
+<ul>
+<li>静态链表需要分配较大的连续空间,插入与删除不需要移动元素</li>
+</ul>
+<ul>
+<li>循环单链表中,head--&gt;next--&gt;next==head,线性表的长度可能为0/1
+<ul>
+<li>1很容易考虑到</li>
+<li>为0时,就是head--&gt;next--&gt;next  ==  head--&gt;next  ==  head</li>
+</ul>
+</li>
+</ul>
+<h1 id="栈和队列">栈和队列</h1>
+<ul>
+<li>
+<p>3个不同元素,依次进栈,能得到的5种不同的出栈序列</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac><msubsup><mi>C</mi><mrow><mn>2</mn><mi>n</mi></mrow><mi>m</mi></msubsup><mo>=</mo><mfrac><mn>1</mn><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>∗</mo><mfrac><mrow><mo>(</mo><mn>2</mn><mi>n</mi><mo>)</mo><mo>!</mo></mrow><mrow><mi>n</mi><mo>!</mo><mo>∗</mo><mi>n</mi><mo>!</mo></mrow></mfrac><mo>=</mo><mfrac><mrow><mo>(</mo><mn>6</mn><mo>∗</mo><mn>5</mn><mo>∗</mo><mn>4</mn></mrow><mrow><mn>4</mn><mo>∗</mo><mn>3</mn><mo>∗</mo><mn>2</mn><mo>∗</mo><mn>1</mn></mrow></mfrac><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">\frac{1}{n+1}C_{2n}^{m}=\frac{1}{n+1}\ast\frac{(2n)!}{n!*n!}=\frac{(6*5*4}{4*3*2*1}=5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2484389999999999em;vertical-align:-0.403331em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-2.4518920000000004em;margin-left:-0.07153em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight">n</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.2484389999999999em;vertical-align:-0.403331em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.403331em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mclose mtight">!</span><span class="mbin mtight">∗</span><span class="mord mathdefault mtight">n</span><span class="mclose mtight">!</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">2</span><span class="mord mathdefault mtight">n</span><span class="mclose mtight">)</span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.355em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span><span class="mbin mtight">∗</span><span class="mord mtight">3</span><span class="mbin mtight">∗</span><span class="mord mtight">2</span><span class="mbin mtight">∗</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mtight">6</span><span class="mbin mtight">∗</span><span class="mord mtight">5</span><span class="mbin mtight">∗</span><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p>C语言的标识符:</p>
+<ul>
+<li>以字母或下划线开头,不能是数字</li>
+</ul>
+</li>
+<li></li>
+</ul>
 
                         </div>
                         
                             <div class="post-toc">
-                                
+                                <ul class="markdownIt-TOC">
+<li><a href="#%E7%BA%BF%E6%80%A7%E8%A1%A8">线性表</a></li>
+<li><a href="#%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97">栈和队列</a></li>
+</ul>
+
                             </div>
                             
                                 
@@ -253,7 +257,7 @@ int main(){
 
                                             <p class="copyright-item">
                                                 <span>Permalink:</span>
-                                                <span><a href="https://machangxin.github.io/post/洛谷 P1106 删数问题/">https://machangxin.github.io/post/洛谷 P1106 删数问题/</a></span>
+                                                <span><a href="https://machangxin.github.io/post/v_afB2B16/">https://machangxin.github.io/post/v_afB2B16/</a></span>
                                             </p>
 
                                             <p class="copyright-item">
@@ -268,9 +272,9 @@ int main(){
                                                         <span style="margin-right:15px">
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
-                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://machangxin.github.io/post/洛谷 P1106 删数问题/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/洛谷 P1106 删数问题/&sharesource=qzone&title=洛谷 P1106 删数问题&pics=https://machangxin.github.io/images/avatar.png?v=1592054629789&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/洛谷 P1106 删数问题/&sharesource=weibo&title=洛谷 P1106 删数问题 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592054629789 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://machangxin.github.io/post/v_afB2B16/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/v_afB2B16/&sharesource=qzone&title=王道408错题集&pics=https://machangxin.github.io/images/avatar.png?v=1592054629789&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/v_afB2B16/&sharesource=weibo&title=王道408错题集 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592054629789 "><i class="fa fa-weibo "></i></a>
                                                         
                                                             <div class="reward ">
                                                                 <div class="reward-button ">&yen;
@@ -288,8 +292,12 @@ int main(){
                                                                         <span class="tag ">
                         
                         
-                        <a href="https://machangxin.github.io/tag/v9yI8FoC7/">#
-                                                刷题
+                        <a href="https://machangxin.github.io/tag/7qbJ3c40A/">#
+                                                408
+                                                    </a>
+                                                    
+                        <a href="https://machangxin.github.io/tag/sViDUM18K/">#
+                                                考研
                                                     </a>
                                                     
                                                         
@@ -305,13 +313,9 @@ int main(){
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://machangxin.github.io/post/JAVAlittle  knowledge/">
-                                                                                            JAVA杂七杂八小知识
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://machangxin.github.io/post/CmnstO3Qf/">
-                                                                                                    JAVA SWING中使用系统风格：
+                                                                                                <a class="next" rel="next" href="https://machangxin.github.io/post/OenxxuuzA/">
+                                                                                                    词汇周day2
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
