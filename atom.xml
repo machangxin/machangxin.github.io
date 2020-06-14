@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Aurora&apos;s blog</title>
-    <updated>2020-06-14T08:59:10.785Z</updated>
+    <updated>2020-06-14T15:07:18.885Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
@@ -10,11 +10,18 @@
     <icon>https://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Aurora&apos;s blog</rights>
     <entry>
-        <title type="html"><![CDATA[day4]]></title>
+        <title type="html"><![CDATA[词汇周day4]]></title>
         <id>https://machangxin.github.io/post/UfxTroKL1/</id>
         <link href="https://machangxin.github.io/post/UfxTroKL1/">
         </link>
         <updated>2020-06-14T08:58:06.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[词汇周day3]]></title>
+        <id>https://machangxin.github.io/post/75NouNQub/</id>
+        <link href="https://machangxin.github.io/post/75NouNQub/">
+        </link>
+        <updated>2020-06-13T15:05:52.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[王道408错题集]]></title>
@@ -24,14 +31,14 @@
         <updated>2020-06-13T13:07:14.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[day2]]></title>
+        <title type="html"><![CDATA[词汇周day2]]></title>
         <id>https://machangxin.github.io/post/OenxxuuzA/</id>
         <link href="https://machangxin.github.io/post/OenxxuuzA/">
         </link>
         <updated>2020-06-12T14:54:38.000Z</updated>
     </entry>
     <entry>
-        <title type="html"><![CDATA[day1]]></title>
+        <title type="html"><![CDATA[词汇周day1]]></title>
         <id>https://machangxin.github.io/post/oCfnJUAPm/</id>
         <link href="https://machangxin.github.io/post/oCfnJUAPm/">
         </link>
@@ -71,12 +78,5 @@
         <link href="https://machangxin.github.io/post/rqPWYQJ_s/">
         </link>
         <updated>2020-03-04T12:57:06.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Windows系统下使用Vmware虚拟Mac OS]]></title>
-        <id>https://machangxin.github.io/post/oYoEE1NnA/</id>
-        <link href="https://machangxin.github.io/post/oYoEE1NnA/">
-        </link>
-        <updated>2020-01-15T03:02:52.000Z</updated>
     </entry>
 </feed>
