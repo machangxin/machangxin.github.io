@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Aurora&apos;s blog</title>
-    <updated>2020-06-14T15:07:55.984Z</updated>
+    <updated>2020-06-15T13:02:37.066Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
     <logo>https://machangxin.github.io/images/avatar.png</logo>
     <icon>https://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Aurora&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[数据结构做题技巧]]></title>
+        <id>https://machangxin.github.io/post/_lWoWq2Hb/</id>
+        <link href="https://machangxin.github.io/post/_lWoWq2Hb/">
+        </link>
+        <updated>2020-06-15T12:57:01.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[词汇周day4]]></title>
         <id>https://machangxin.github.io/post/UfxTroKL1/</id>
@@ -71,12 +78,5 @@
         <link href="https://machangxin.github.io/post/ix_cAwPuX/">
         </link>
         <updated>2020-03-05T02:09:38.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[用input输入复制的文件地址时，字符串首部可能出现\u202A]]></title>
-        <id>https://machangxin.github.io/post/rqPWYQJ_s/</id>
-        <link href="https://machangxin.github.io/post/rqPWYQJ_s/">
-        </link>
-        <updated>2020-03-04T12:57:06.000Z</updated>
     </entry>
 </feed>
