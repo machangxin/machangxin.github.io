@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                翻译布尔表达式
+                                项目管理突击复习
                             </h1>
                             
                                 <!--en-->
@@ -183,20 +183,13 @@
                                         Aurora's blog
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2019-11-28</a>
+                                Date: <a href="#">2020-06-18</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">2.8
+                                    href="#">6.3
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">514</a></span>
+                                    <span class="post-words">words:<a href="#">1879</a></span>
                                     
-                                        <span class="post-category">
-                                Category:
-                                
-                                <a href="https://machangxin.github.io/tag/p65s-9oeF/">编译原理题解报告</a>
-                                
-                            </span>
-                                        
                                             Views:
                                             <span data-hk-page="current"> - </span>
                                             
@@ -205,106 +198,178 @@
                         </header>
                         
                         <div class="post-content">
-                            <p>大家都学过了布尔表达式的翻译，其中有一个拉链－回填技术，这次我们就练习这个技术。<br>
-注意，在布尔表达式中，“并且”运算的优先级是要高于“或者”运算的。</p>
-<p><strong>输入格式:</strong><br>
-输入为一行字符串，例如： a &lt; b or c &lt; d and e &lt; f<br>
-每个符号都用空格间隔。<br>
-其中逻辑运算符包含 and 和 or ， 关系运算符包含 &lt; 、&gt; 、&lt;= 、 &gt;= 、== 、 != 。</p>
-<p><strong>输出格式:</strong><br>
-假链跳到０，真链跳到１，表达式序号从100开始排。</p>
-<p><strong>输入样例1:</strong><br>
-a &lt; b or c &lt; d and e &lt; f<br>
-<strong>输出样例1:</strong><br>
-100(j&lt;,a,b,1)<br>
-101(j,<em>,</em>,102)<br>
-102(j&lt;,c,d,104)<br>
-103(j,<em>,</em>,0)<br>
-104(j&lt;,e,f,100)<br>
-105(j,<em>,</em>,103)<br>
-<strong>输入样例2:</strong><br>
-a &lt; b and c &gt; d or e &gt; f<br>
-<strong>输出样例2:</strong><br>
-100(j&lt;,a,b,102)<br>
-101(j,<em>,</em>,104)<br>
-102(j&gt;,c,d,1)<br>
-103(j,<em>,</em>,101)<br>
-104(j&gt;,e,f,102)<br>
-105(j,<em>,</em>,0)</p>
-<pre><code>#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define pr ans[1].c_str(),ans[0].c_str(),ans[2].c_str()
-int main()
-{
-    string x,xx,s[1000];
-    getline(cin,xx);
-    xx+=&quot; end&quot;;
-    int h=1,hh,ix=100,num=0,ff[1000],t=1,f=0,f2=0;
-    vector&lt;string&gt;ans;
-    bool flag=0;
-    stringstream ss(xx);
-    while(ss&gt;&gt;x)
-    {
-        s[++num]=x;
-    }
-    for(int i=1; i&lt;=num; i++){
-        if(s[i]==&quot;or&quot;||s[i]==&quot;and&quot;)
-            h++;
-    }
-
-    for(int i=num; i&gt;=1; i--)
-    {
-        if(s[i]==&quot;or&quot;)
-            flag=1,h--,hh=h;
-        else if(s[i]==&quot;and&quot;)
-        {
-            h--;
-            if(flag)
-            {
-                ff[i]=100+2*hh;
-            }
-        }
-    }
-    for(int i=1; i&lt;=num; i++)
-    {
-        x=s[i];
-        if(x==&quot;or&quot;)
-        {
-            printf(&quot;%d(j%s,%s,%s,%d)\n&quot;,ix,pr,t);
-            t=ix++;
-            if(!f2)
-                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,ix+1);
-            else
-                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,f2),f2=0;
-            ix++;
-            ans.clear();
-        }
-        else if(x==&quot;and&quot;)
-        {
-            printf(&quot;%d(j%s,%s,%s,%d)\n&quot;,ix,pr,ix+2);
-            ix++;
-            if(!ff[i])
-                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,f),f=ix;
-            else
-                printf(&quot;%d(j,_,_,%d)\n&quot;,ix,!f2? ff[i]:f2),f2=ix;
-            ix++;
-            ans.clear();
-        }
-        else if(x==&quot;end&quot;)
-        {
-            printf(&quot;%d(j%s,%s,%s,%d)\n&quot;,ix++,pr,t);
-            printf(&quot;%d(j,_,_,%d)\n&quot;,ix,f);
-        }
-        else
-            ans.push_back(x);
-    }
-}
-</code></pre>
+                            <h2 id="瀑布模型">瀑布模型：</h2>
+<p>​		瀑布模型（Waterfall Model） 是一个软件生命周期模型，开发过程是通过设计一系列阶段顺序展开的，从系统需求分析开始直到产品发布和维护，项目开发进程从一个阶段“流动”到下一个阶段，这也是瀑布模型名称的由来。</p>
+<ul>
+<li>优点：<br>
+① 简单、易用、直观；<br>
+② 开发进程严格，一个进程接着一个进程进行；<br>
+③ 模型执行过程严格控制；<br>
+④ 允许基线和配置早期接受控制；<br>
+⑤ 提供了按阶段划分的检查点，一个阶段完成后，只需关注后续阶段。</li>
+<li>缺点：<br>
+① 要在开发初期就做出正确、全面、完整的需求分析，对软件来说很困难；<br>
+② 没有反馈过程，增加开发风险；<br>
+③ 新项目不适合，除非在后期；<br>
+④ 用户不能渐渐熟悉系统；<br>
+⑤ 不允许变更或限制变更；<br>
+⑥ 早期错误可能后期才发现，带来严重后果。<br>
+适用范围：<br>
+① 项目开始前，需求明确、已被很好理解，且项目经理很熟悉实现这一模型所需要的过程；<br>
+② 解决方案在项目开始前也很明确；<br>
+③ 短期项目可用。</li>
+</ul>
+<h2 id="v模型">V模型：</h2>
+<p>瀑布模型的变种，同样要一步一步进行。但强调测试的重要性，将开发活动与测试活动紧密连接在一起。</p>
+<ul>
+<li>优点：<br>
+① 简单、易用、直观；<br>
+② 开发进程严格，一个进程接着一个进程进行；<br>
+③ 模型执行过程严格控制；<br>
+④ 允许基线和配置早期接受控制；<br>
+⑤ 提供了按阶段划分的检查点，一个阶段完成后，只需关注后续阶段。<br>
+⑥强调测试过程与开发过程的对应性和并发性；</li>
+<li>缺点：<br>
+① 要在开发初期就做出正确、全面、完整的需求分析，对软件来说很困难；<br>
+② 软件项目的实现方案需要很明确；<br>
+③ 不能存在变更。<br>
+适用范围：<br>
+① 项目开始前，需求明确、已被很好理解，且项目经理很熟悉实现这一模型所需要的过程；<br>
+② 解决方案在项目开始前也很明确；<br>
+③ 项目对系统的安全性能要求很严格。如公司财务系统。</li>
+</ul>
+<h2 id="迭代型生存期模型-原型模型">迭代型生存期模型/ 原型模型：</h2>
+<p>原型模型是迅速建造一个可以运行的软件原型 ，以便理解和澄清问题，使开发人员与用户达成共识，最终在确定的客户需求基础上开发客户满意的软件产品。</p>
+<ul>
+<li>优点：<br>
+① 减少软件需求不明确带来的风险；<br>
+② 用户可以根据原型系统 提反馈意见；<br>
+③ 根据反馈意见修改软件需求规格，使系统更符合用户需求；<br>
+④ 减少项目的各种假设和风险。</li>
+<li>缺点：<br>
+① 需求定义之前要构造一个原型系统；<br>
+②所用的开发技术跟工具不一定符合主流；<br>
+③ 快速建立的系统加上连续修改，会导致产品质量低下；<br>
+④ 要先有一个展示性的产品原型，可能会限制开发人员创新。<br>
+适应范围：<br>
+① 项目的需求在项目开始前不明确；<br>
+② 需要减少项目不确定性的时候。</li>
+</ul>
+<h2 id="增量型生存期模型">增量型生存期模型：</h2>
+<p>不同时开发项目需求，而是把需求分段，使其成为一系列增量产品。每一增量都可以分别实施。</p>
+<ul>
+<li>优点：<br>
+① 较好的适应变化，客户可以不断看到开发的软件，降低开发风险；<br>
+② 避免一次性投资太多带来的风险；<br>
+③ 更快开发出可以操作的系统；<br>
+④ 减少开发过程用户需求的变更。</li>
+<li>缺点：<br>
+① 构件逐渐并入，软件需要具备开放式体系结构；<br>
+② 需求变化时，增量重新开发会使软件工程的控制失去整体性。<br>
+适用范围：<br>
+① 对已有产品升级或新版本开发；<br>
+② 对于完成期限要求严格的产品；<br>
+③ 对于所开发领域比较熟悉且已有原型系统；<br>
+④ 对市场和用户把握不是很准需要逐步了解的项目。</li>
+</ul>
+<h2 id="敏捷型生存期模型">敏捷型生存期模型：</h2>
+<p>符合《敏捷宣言》原则的、结合迭代和增量方法的生存期模型。</p>
+<ul>
+<li>优点：<br>
+① 使项目进入实质开发迭代阶段，用户很快可以看到一个基线架构版的产品。<br>
+② 注重市场快速反应能力，也即具体应对能力，客户前期满意度高。</li>
+<li>缺点：<br>
+① 注重人员的沟通，忽略文档的重要性，若项目人员流动大太，又给维护带来不少难度；<br>
+② 项目存在新手比较多时，老员工比较累。<br>
+适用范围：<br>
+1.项目团队的人数不能太多<br>
+2.项目经常发生变更<br>
+3.高风险的项目实施<br>
+4.开发人员可以参与决策</li>
+</ul>
+<h2 id="任务分解的过程">任务分解的过程</h2>
+<ul>
+<li>确认并分解项目的主要组成元素</li>
+<li>确定分解标准,按照项目实施管理的方法分解,而且分解的标准要统一</li>
+<li>确认分解是否详细</li>
+<li>确认项目交付成果</li>
+<li>验证分解正确性</li>
+</ul>
+<h2 id="任务分解方法">任务分解方法</h2>
+<ul>
+<li>模版参照法</li>
+<li>类比法</li>
+<li>自顶向下</li>
+<li>自底向上</li>
+</ul>
+<h2 id="风险应对策略">风险应对策略</h2>
+<ul>
+<li>回避风险
+<ul>
+<li>通过找出发生风险的原因,尽可能的规避风险</li>
+</ul>
+</li>
+<li>转移风险
+<ul>
+<li>避免承担风险的损失</li>
+<li>有意识的将损失转嫁给其他单位或个人</li>
+</ul>
+</li>
+<li>损失控制
+<ul>
+<li>损失预防
+<ul>
+<li>风险发生前,为了消除或减少可能引起风险的各种因素而采取的各种具体措施</li>
+</ul>
+</li>
+<li>损失抑制
+<ul>
+<li>风险发生后为了缩小损失而采取的措施</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自留风险
+<ul>
+<li>由项目组织自己承担风险事件所导致损失的措施</li>
+</ul>
+</li>
+</ul>
+<h2 id="scrum的流程">scrum的流程</h2>
+<ul>
+<li>Sprint 计划会议 1：原始需求者、产品负责人及团队一起，确定任务优先级，定出 Sprint 目标和既定产品 Backlog。</li>
+<li>Sprint 计划会议 2：团队将既定产品 Backlog 中的每一项细化成多个任务。每个任务完成的时间限定在一天内。</li>
+<li>每日站会：项目团队成员间的一个进度协调会议。会议每天都在同一时间同一地点举行。时间限定在 15 分钟内。</li>
+<li>验收会议：由原始需求者或产品负责人断定实际所发布的功能是否与既定的 Sprint 目标一致。</li>
+<li>回顾会议：项目团队分析Sprint中的成功经验和所遇到的障碍。</li>
+</ul>
+<h2 id="质量保证与质量控制">质量保证与质量控制</h2>
+<ul>
+<li>质量保证的主要活动是项目执行过程审计和项目产品审计。</li>
+<li>质量保证的要点是：对项目进行评价、推测能否达到质量指标、建立对项目的信心</li>
+<li>质量保证是后期质量活动，质量控制是前期质量活动。它们是有区别的:质质量保证是针对项目实施过程的管理手段，质量控制是针对项目产品的技术手段;实施质量保证是针对过程改进和审计的，强调的是过程改进和信心保证。实施质量控制是按照质量要求，检查具体可交付成果的质量，强调的是具体的可交付成果。</li>
+</ul>
 
                         </div>
                         
                             <div class="post-toc">
-                                
+                                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B">瀑布模型：</a></li>
+<li><a href="#v%E6%A8%A1%E5%9E%8B">V模型：</a></li>
+<li><a href="#%E8%BF%AD%E4%BB%A3%E5%9E%8B%E7%94%9F%E5%AD%98%E6%9C%9F%E6%A8%A1%E5%9E%8B-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B">迭代型生存期模型/ 原型模型：</a></li>
+<li><a href="#%E5%A2%9E%E9%87%8F%E5%9E%8B%E7%94%9F%E5%AD%98%E6%9C%9F%E6%A8%A1%E5%9E%8B">增量型生存期模型：</a></li>
+<li><a href="#%E6%95%8F%E6%8D%B7%E5%9E%8B%E7%94%9F%E5%AD%98%E6%9C%9F%E6%A8%A1%E5%9E%8B">敏捷型生存期模型：</a></li>
+<li><a href="#%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3%E7%9A%84%E8%BF%87%E7%A8%8B">任务分解的过程</a></li>
+<li><a href="#%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3%E6%96%B9%E6%B3%95">任务分解方法</a></li>
+<li><a href="#%E9%A3%8E%E9%99%A9%E5%BA%94%E5%AF%B9%E7%AD%96%E7%95%A5">风险应对策略</a></li>
+<li><a href="#scrum%E7%9A%84%E6%B5%81%E7%A8%8B">scrum的流程</a></li>
+<li><a href="#%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81%E4%B8%8E%E8%B4%A8%E9%87%8F%E6%8E%A7%E5%88%B6">质量保证与质量控制</a></li>
+</ul>
+</li>
+</ul>
+
                             </div>
                             
                                 
@@ -318,7 +383,7 @@ int main()
 
                                             <p class="copyright-item">
                                                 <span>Permalink:</span>
-                                                <span><a href="https://machangxin.github.io/post/d_CBRYM0E/">https://machangxin.github.io/post/d_CBRYM0E/</a></span>
+                                                <span><a href="https://machangxin.github.io/post/JiEs8xjzK/">https://machangxin.github.io/post/JiEs8xjzK/</a></span>
                                             </p>
 
                                             <p class="copyright-item">
@@ -333,9 +398,9 @@ int main()
                                                         <span style="margin-right:15px">
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
-                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://machangxin.github.io/post/d_CBRYM0E/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/d_CBRYM0E/&sharesource=qzone&title=翻译布尔表达式&pics=https://machangxin.github.io/images/avatar.png?v=1592474079870&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/d_CBRYM0E/&sharesource=weibo&title=翻译布尔表达式 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592474079870 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://machangxin.github.io/post/JiEs8xjzK/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/JiEs8xjzK/&sharesource=qzone&title=项目管理突击复习&pics=https://machangxin.github.io/images/avatar.png?v=1592474079870&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/JiEs8xjzK/&sharesource=weibo&title=项目管理突击复习 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592474079870 "><i class="fa fa-weibo "></i></a>
                                                         
                                                             <div class="reward ">
                                                                 <div class="reward-button ">&yen;
@@ -352,12 +417,6 @@ int main()
                                                                         <span>Tag(s):</span>
                                                                         <span class="tag ">
                         
-                        
-                        <a href="https://machangxin.github.io/tag/p65s-9oeF/">#
-                                                编译原理题解报告
-                                                    </a>
-                                                    
-                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -370,13 +429,9 @@ int main()
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://machangxin.github.io/post/49gvoHq33/">
-                                                                                            简单的代码生成程序
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://machangxin.github.io/post/15RsiSbeQ/">
-                                                                                                    DAG图优化
+                                                                                                <a class="next" rel="next" href="https://machangxin.github.io/post/_lWoWq2Hb/">
+                                                                                                    数据结构做题技巧
                                                                                                 </a>
                                                                                                 
                                                                                 </section>
