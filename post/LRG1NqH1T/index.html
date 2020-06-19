@@ -173,7 +173,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                数据结构做题技巧
+                                计网五天突击复习
                             </h1>
                             
                                 <!--en-->
@@ -183,20 +183,13 @@
                                         Aurora's blog
                                     </a>
                                     <span class="post-time">
-                                Date: <a href="#">2020-06-15</a>
+                                Date: <a href="#">2020-06-19</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">0.5
+                                    href="#">5.8
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">139</a></span>
+                                    <span class="post-words">words:<a href="#">1591</a></span>
                                     
-                                        <span class="post-category">
-                                Category:
-                                
-                                <a href="https://machangxin.github.io/tag/7qbJ3c40A/">408</a>
-                                
-                            </span>
-                                        
                                             Views:
                                             <span data-hk-page="current"> - </span>
                                             
@@ -204,34 +197,395 @@
                                 
                         </header>
                         
-                            <img class="post-feature-image" src="https://cdn.pixabay.com/photo/2020/06/10/01/32/cumulonimbus-5280578_960_720.jpg" alt="">
-                          
                         <div class="post-content">
-                            <h1 id="快速判断合法的出栈序列"><strong>快速判断合法的出栈序列</strong></h1>
+                            <h1 id="计网五天突击复习">计网五天突击复习</h1>
 <ul>
-<li>按顺序入栈的序列，任意元素 e ，比 e 先入栈的元素，并且比 e 后出栈的元素，一定是逆序的。
+<li>三种交换方式
 <ul>
-<li><strong>“ 后出先入逆序 ”</strong></li>
+<li>电路交换</li>
+<li>报文交换</li>
+<li>分组交换</li>
 </ul>
 </li>
-<li>ex. 入栈为1   2    3    4
+<li>不同分层
 <ul>
-<li>拿3  1  2  4来说</li>
-<li>选择任意一个元素 ，这里选择 3</li>
-<li>比 3 后出栈的有三个元素 1 2 4</li>
-<li>其中比 3 先入栈的有两个元素 1 2</li>
-<li>但是 1 2 是正序的，而不是逆序的</li>
-<li>所以这个序列不是合法出栈序列</li>
+<li>OSI七层:物理层,数据链路层,网络层,运输层,会话层,表示层,应用层</li>
+<li>TCP五层:物理层(比特),数据链路层(帧),网络层(分组/IP数据报),运输层(TCP:报文段;UDP:用户数据报),应用层(报文)</li>
+</ul>
+</li>
+<li>通信方式:
+<ul>
+<li>单工通信:只能一端发送一端接收</li>
+<li>半双工:两端都能发送,但不能同时发送</li>
+<li>全双工:可以同时发送</li>
+</ul>
+</li>
+<li>带通调制方法:
+<ul>
+<li>调幅:调振幅,such:0对应无振幅,1对应有振幅</li>
+<li>调频:调频率,such:0对应频率高,1对应频率低</li>
+<li>调相:调初相,such:0对应0°,1对应180°</li>
+</ul>
+</li>
+<li><mark>信噪比 = 10*log<sub>10</sub>(S/N)</mark>
+<ul>
+<li>S为信道内的平均功率,N为高斯噪声功率</li>
+</ul>
+</li>
+<li><mark>香农公式 : C = W*log<sub>2</sub>(1+S/N)</mark>
+<ul>
+<li>W为信道带宽(Hz单位),C为信道的极限信息传输速率</li>
+</ul>
+</li>
+<li>传输媒体:
+<ul>
+<li>导引型传输媒体
+<ul>
+<li>双绞线,同轴电缆,光缆</li>
+</ul>
+</li>
+<li>非导引型传输媒体
+<ul>
+<li>各种无线传输</li>
 </ul>
 </li>
 </ul>
-<hr>
+</li>
+<li>信道复用技术
+<ul>
+<li><mark>频分复用</mark>:不同用户占不同频率</li>
+<li><mark>时分复用</mark>:所有用户在不同的时间占同样的频带宽度</li>
+<li>统计时分复用</li>
+<li>波分复用,码分复用</li>
+</ul>
+</li>
+<li>宽带接入技术
+<ul>
+<li><mark>接入网:把用户接入的网络叫接入网P60</mark></li>
+</ul>
+</li>
+</ul>
+<h2 id="数据链路层">数据链路层</h2>
+<ul>
+<li>
+<p>两种信道类型</p>
+<ul>
+<li>点对点信道</li>
+<li>广播信道</li>
+</ul>
+</li>
+<li>
+<p>两种协议</p>
+<ul>
+<li><mark>PPP协议</mark></li>
+<li><mark>CSMA/CD协议</mark></li>
+</ul>
+</li>
+<li>
+<p>三个基本问题</p>
+<ul>
+<li>封装成帧</li>
+<li>透明传输</li>
+<li>差错检测</li>
+</ul>
+</li>
+<li>
+<p>MAC的硬件地址(48位)</p>
+<ul>
+<li>变与不变?</li>
+</ul>
+</li>
+<li>
+<p><mark>适配器/转发器/集线器/网桥/交换机用于什么层?goodnotes已总结</mark></p>
+</li>
+<li>
+<p><mark>循环冗余算法(CRC)怎么算</mark></p>
+</li>
+<li>
+<p>以太网的两个标准</p>
+<ul>
+<li>LLC与MAC</li>
+</ul>
+</li>
+<li>
+<p>CSMA/CD协议(多点接入/载波监听/碰撞<mark>检测</mark>)检测,不是避免或采取措施</p>
+<ul>
+<li>尽最大努力交付,不可靠</li>
+<li>检测到差错,会丢掉数据帧</li>
+<li><mark>征用期得概念</mark></li>
+</ul>
+</li>
+<li>
+<p>以太网的MAC层</p>
+</li>
+<li>
+<p>VLAN</p>
+</li>
+<li>
+<p><mark>P112 图3-31</mark></p>
+</li>
+</ul>
+<h2 id="网络层">网络层</h2>
+<ul>
+<li>划分子网,构造超网</li>
+<li>会写路由表</li>
+<li>会查路由表==(给目的IP查下一跳)==</li>
+<li>IP分类,各种IP==(A,B,C类)==</li>
+<li>IP,公网使用,内部使用,不能分的IP</li>
+<li>中间设备
+<ul>
+<li>物理层使用的中间设备叫转发器</li>
+<li>数据链路层使用的中间设备叫网桥或桥接器</li>
+<li>网络层使用的叫路由器</li>
+<li>网络层以上叫网关</li>
+</ul>
+</li>
+<li>地址解析协议ARP的作用</li>
+<li>IP地址与子网掩码相与得出什么</li>
+<li>默认子网掩码</li>
+<li>ICMP差错报告报文共有四种:
+<ul>
+<li>终点不可达</li>
+<li>时间超过</li>
+<li>参数问题</li>
+<li>改变路由(重定向)</li>
+</ul>
+</li>
+<li>内部网关协议IGP
+<ul>
+<li>RIP,<mark>(RIP适用于小型,会计算)</mark></li>
+<li>OSPF     了解,适用于大型项目</li>
+</ul>
+</li>
+<li>外部网关协议EGP
+<ul>
+<li>BGP     了解</li>
+</ul>
+</li>
+<li>P155页例4-5</li>
+<li>IPV6
+<ul>
+<li>128位</li>
+<li>允许协议继续扩充</li>
+<li>支持即插即用(即自动配置),因此IPV6不需要使用DHCP</li>
+<li>支持资源的预分配</li>
+</ul>
+</li>
+<li>IPV6的过渡
+<ul>
+<li>双协议栈</li>
+<li>隧道技术</li>
+</ul>
+</li>
+<li>IP多播,使用D类IP地址</li>
+<li>IGMP协议是让连接在本地局域网上的多播路由器知道本局域网上是否有主机参加或退出了某个多播组, 仅有IGMP协议是不能完成多播任务的,连接在局域网上的多播路由器还必须和互联网上的其他多播路由器协同工作</li>
+<li>三个专用地址块
+<ul>
+<li>10.0.0.0-----10.255.255.255(10.0.0.0/8,它称为24位块)</li>
+<li>172.16.0.0------172.31.255.255(172.16.0.0/12,它称为20位块)</li>
+<li>192.168.0.0------192.168.255.255(192.168.0.0/16,16位块)</li>
+</ul>
+</li>
+<li>P187页 图4---60 NAT路由器的工作原理</li>
+</ul>
+<h2 id="运输层">运输层</h2>
+<ul>
+<li>
+<p>运输层为互相通信的应用进程提供逻辑通信</p>
+<ul>
+<li>
+<p>端口号为16位</p>
+</li>
+<li>
+<p>系统端口号为0---1023</p>
+</li>
+<li>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>应用</th>
+<th>运输层协议</th>
+<th>端口号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNS</td>
+<td>域名转换</td>
+<td>UDP</td>
+<td>53</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>文件传送</td>
+<td>TCP</td>
+<td>20/21</td>
+</tr>
+<tr>
+<td>TELNET</td>
+<td>远程终端接入</td>
+<td>TCP</td>
+<td>23</td>
+</tr>
+<tr>
+<td><mark>SMTP</mark></td>
+<td>发邮件</td>
+<td>TCP</td>
+<td>25</td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td>万维网</td>
+<td>TCP</td>
+<td>80</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>万维网</td>
+<td>TCP</td>
+<td>443</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+<li>
+<p>UDP<mark>简答</mark></p>
+<ul>
+<li>无连接</li>
+<li>尽最大努力交付</li>
+<li>面向报文</li>
+<li>没有拥塞控制</li>
+<li>支持一对一,一对多,多对一,多对多的交互通信</li>
+<li>首部开销小</li>
+</ul>
+</li>
+<li>
+<p>TCP<mark>简答</mark></p>
+<ul>
+<li>面向连接的运输层协议</li>
+<li>每一条TCP连接只能有两个端点(<mark>点对点</mark>通信)</li>
+<li>提供<mark>可靠交付</mark>服务</li>
+<li>全双工通信</li>
+<li>面向字节流</li>
+</ul>
+</li>
+<li>
+<p>连续ARQ协议</p>
+<ul>
+<li>接收方采用累计确认的方式
+<ul>
+<li>接收方不必对收到的分组逐个发送确认,而是收到几个分组后,对按序到达的最后一个分组进行确认,这就表示:<mark>到这个分组为止的所有分组都已正确收到</mark></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>TCP格式</p>
+<ul>
+<li>P217 图5---14</li>
+<li>重点:窗口,   序号,   ACK,   SYN,  FIN</li>
+</ul>
+</li>
+<li>
+<p>TCP的可靠传输</p>
+<ul>
+<li>序号机制</li>
+<li>确认号机制</li>
+<li>超时重传</li>
+<li>差错检测</li>
+</ul>
+</li>
+<li>
+<p>TCP流量控制</p>
+<ul>
+<li>序号机制,   确认号机制<mark>必考</mark></li>
+</ul>
+</li>
+<li>
+<p>TCP的拥塞控制</p>
+<ul>
+<li>拥塞窗口cwnd</li>
+<li>慢开始门限ssthresh</li>
+<li>慢开始,拥塞避免,快重传,快恢复</li>
+</ul>
+</li>
+<li>
+<p>TCP的<mark>三次握手和四次握手</mark></p>
+</li>
+</ul>
+<h2 id="应用层">应用层</h2>
+<ul>
+<li>域名结构
+<ul>
+<li>顶级域名,二级域,三级域</li>
+<li>顶级域名服务器,权限域名服务器,本地域名服务器</li>
+</ul>
+</li>
+<li>URL
+<ul>
+<li>格式&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;</li>
+</ul>
+</li>
+<li>电子邮件
+<ul>
+<li>图6-17 P285</li>
+</ul>
+</li>
+</ul>
+<h2 id="网络安全">网络安全</h2>
+<ul>
+<li>P324 图7--1</li>
+<li>数据加密标准DES属于对称密钥密码体制
+<ul>
+<li>DES的保密性仅取决于对密钥的保密,而算法是公开的</li>
+</ul>
+</li>
+<li>公钥密码体制
+<ul>
+<li>RSA体制</li>
+<li>加密密钥PK(public sky)即公钥是向公众开放的,而解密密钥SK(secret key)即私钥是需要保密的</li>
+<li>加密算法E和解密算法D也是公开的</li>
+</ul>
+</li>
+<li>任何加密方法的安全性取决于密钥的长度,以及攻破密文所需的计算量</li>
+<li>数字签名 P331</li>
+<li>安全协议
+<ul>
+<li>网络层的安全协议
+<ul>
+<li>IPsec协议族(提供加密服务)</li>
+</ul>
+</li>
+<li>运输层的安全协议
+<ul>
+<li>SSL(安全套接字层)
+<ul>
+<li>HTTP+SSL=HTTPS</li>
+</ul>
+</li>
+<li>应用层使用最多的是HTTP,但SSL并非仅用于HTTP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                         </div>
                         
                             <div class="post-toc">
                                 <ul class="markdownIt-TOC">
-<li><a href="#%E5%BF%AB%E9%80%9F%E5%88%A4%E6%96%AD%E5%90%88%E6%B3%95%E7%9A%84%E5%87%BA%E6%A0%88%E5%BA%8F%E5%88%97"><strong>快速判断合法的出栈序列</strong></a></li>
+<li><a href="#%E8%AE%A1%E7%BD%91%E4%BA%94%E5%A4%A9%E7%AA%81%E5%87%BB%E5%A4%8D%E4%B9%A0">计网五天突击复习</a>
+<ul>
+<li><a href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82">数据链路层</a></li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E5%B1%82">网络层</a></li>
+<li><a href="#%E8%BF%90%E8%BE%93%E5%B1%82">运输层</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%B1%82">应用层</a></li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8">网络安全</a></li>
+</ul>
+</li>
 </ul>
 
                             </div>
@@ -247,7 +601,7 @@
 
                                             <p class="copyright-item">
                                                 <span>Permalink:</span>
-                                                <span><a href="https://machangxin.github.io/post/_lWoWq2Hb/">https://machangxin.github.io/post/_lWoWq2Hb/</a></span>
+                                                <span><a href="https://machangxin.github.io/post/LRG1NqH1T/">https://machangxin.github.io/post/LRG1NqH1T/</a></span>
                                             </p>
 
                                             <p class="copyright-item">
@@ -262,9 +616,9 @@
                                                         <span style="margin-right:15px">
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
-                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://machangxin.github.io/post/_lWoWq2Hb/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/_lWoWq2Hb/&sharesource=qzone&title=数据结构做题技巧&pics=https://machangxin.github.io/images/avatar.png?v=1592573333321&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/_lWoWq2Hb/&sharesource=weibo&title=数据结构做题技巧 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592573333321 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://machangxin.github.io/post/LRG1NqH1T/"><i class="fa fa-qrcode"></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/LRG1NqH1T/&sharesource=qzone&title=计网五天突击复习&pics=https://machangxin.github.io/images/avatar.png?v=1592573333321&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/LRG1NqH1T/&sharesource=weibo&title=计网五天突击复习 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592573333321 "><i class="fa fa-weibo "></i></a>
                                                         
                                                             <div class="reward ">
                                                                 <div class="reward-button ">&yen;
@@ -281,12 +635,6 @@
                                                                         <span>Tag(s):</span>
                                                                         <span class="tag ">
                         
-                        
-                        <a href="https://machangxin.github.io/tag/7qbJ3c40A/">#
-                                                408
-                                                    </a>
-                                                    
-                                                        
                                                             </span>
                                                                     </div>
                                                                     <div>
@@ -299,13 +647,9 @@
                                                                                 <!---->
                                                                                 <section class="post-nav">
                                                                                     
-                                                                                        <a class="prev" rel="prev" href="https://machangxin.github.io/post/JiEs8xjzK/">
-                                                                                            项目管理突击复习
-                                                                                        </a>
-                                                                                        
                                                                                             
-                                                                                                <a class="next" rel="next" href="https://machangxin.github.io/post/UfxTroKL1/">
-                                                                                                    词汇周day4
+                                                                                                <a class="next" rel="next" href="https://machangxin.github.io/post/JiEs8xjzK/">
+                                                                                                    项目管理突击复习
                                                                                                 </a>
                                                                                                 
                                                                                 </section>

@@ -2,13 +2,20 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://machangxin.github.io</id>
     <title>Aurora&apos;s blog</title>
-    <updated>2020-06-18T15:27:42.466Z</updated>
+    <updated>2020-06-19T13:28:56.495Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://machangxin.github.io"/>
     <link rel="self" href="https://machangxin.github.io/atom.xml"/>
     <logo>https://machangxin.github.io/images/avatar.png</logo>
     <icon>https://machangxin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Aurora&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[计网五天突击复习]]></title>
+        <id>https://machangxin.github.io/post/LRG1NqH1T/</id>
+        <link href="https://machangxin.github.io/post/LRG1NqH1T/">
+        </link>
+        <updated>2020-06-19T13:28:30.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[项目管理突击复习]]></title>
         <id>https://machangxin.github.io/post/JiEs8xjzK/</id>
@@ -71,12 +78,5 @@
         <link href="https://machangxin.github.io/post/pnmmNP9I6/">
         </link>
         <updated>2020-03-05T14:35:47.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[python程序打包成exe]]></title>
-        <id>https://machangxin.github.io/post/BWvIospQx/</id>
-        <link href="https://machangxin.github.io/post/BWvIospQx/">
-        </link>
-        <updated>2020-03-05T03:54:49.000Z</updated>
     </entry>
 </feed>
