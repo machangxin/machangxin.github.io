@@ -92,7 +92,7 @@
                         <input id="switch_default" type="checkbox" class="switch_default">
                         <label for="switch_default" class="toggleBtn"></label>
             </div>
-            <form id="gridea-search-form" data-update="1592573333321" action="/search/index.html">
+            <form id="gridea-search-form" data-update="1592745397876" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
             </form>
         </div>
@@ -111,7 +111,7 @@
                         <!--zh-->
                         <a id="mobile-toggle-theme-zh" class="a zh">&nbsp;&#x6697;&#x9ED1;</a>
                     </div>
-                    <form id="gridea-search-form" data-update="1592573333321" action="/search/index.html">
+                    <form id="gridea-search-form" data-update="1592745397876" action="/search/index.html">
                         <input class="search-input" autocomplete="off" spellcheck="false" name="q" autofocus="true" placeholder="Search...">
                     </form>
                     <!--en-->
@@ -186,9 +186,9 @@
                                 Date: <a href="#">2020-06-19</a>
                             </span>
                                     <span class="post-readtime">Reading Time:<a
-                                    href="#">5.8
+                                    href="#">8.4
                                     mins</a></span>
-                                    <span class="post-words">words:<a href="#">1591</a></span>
+                                    <span class="post-words">words:<a href="#">2291</a></span>
                                     
                                             Views:
                                             <span data-hk-page="current"> - </span>
@@ -572,6 +572,87 @@
 </ul>
 </li>
 </ul>
+<hr>
+<h1 id="三层交换和三层路由"><strong>三层交换和三层路由</strong></h1>
+<ul>
+<li>
+<p>1.三层交换机能够提供比路由器大的多的转发速率，而路由器的转发速率相对较低。</p>
+<p>2、三层交换机通常仅支持IP协议的告诉转发，路由器通常支持多种协议。</p>
+<p>3、三层交换机的接口比较单一，且数目众多。路由器有丰富的接口类型，但是一般单一类型的接口数目较少。</p>
+<p>4、三层交换机能够连接的网络类型较单一。路由器可以实现多种异种网络的互联。</p>
+</li>
+</ul>
+<h1 id="tcp">TCP</h1>
+<figure data-type="image" tabindex="1"><img src="https://wujun234.github.io/images/1581871013445.png" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>假设 A 为客户端，B 为服务器端。</p>
+<ul>
+<li>首先 B 处于 LISTEN（监听）状态，等待客户的连接请求。</li>
+<li>A 向 B 发送连接请求报文，SYN=1，ACK=0，选择一个初始的序号 x。</li>
+<li>B 收到连接请求报文，如果同意建立连接，则向 A 发送连接确认报文，SYN=1，ACK=1，确认号为 x+1，同时也选择一个初始的序号 y。</li>
+<li>A 收到 B 的连接确认报文后，还要向 B 发出确认，确认号为 y+1，序号为 x+1。</li>
+<li>B 收到 A 的确认后，连接建立。</li>
+</ul>
+</li>
+<li>
+<figure data-type="image" tabindex="2"><img src="https://wujun234.github.io/images/1581873012106.png" alt="" loading="lazy"></figure>
+</li>
+<li>
+<p>A 发送连接释放报文，FIN=1。</p>
+</li>
+<li>
+<p>B 收到之后发出确认，此时 TCP 属于 CLOSE-WAIT 状态，B 能向 A 发送数据但是 A 不能向 B 发送数据。</p>
+</li>
+<li>
+<p>当 B 不再需要连接时，发送连接释放报文，FIN=1。</p>
+</li>
+<li>
+<p>A 收到后发出确认，进入 TIME-WAIT 状态，等待 2 MSL（最大报文存活时间）后释放连接。</p>
+</li>
+<li>
+<p>B 收到 A 的确认后释放连接。</p>
+</li>
+</ul>
+<h1 id="安全">安全</h1>
+<p>近年来，随着计算机网络的普及与发展，我们的生活和工作都越来越依赖于网络。国家政府机构、各企事业单位不仅建立了自己的局域网系统，而且通过各种方式与互联网相连。但是，我们不得不注意到，网络虽然功能强大，也有其脆弱易受到攻击的一面。所以，我们在利用网络的同时，也应该关注网络安全问题，加强网络安全防范，防止网络的侵害，让网络更好的为人们服务。</p>
+<h1 id="协议">协议</h1>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>代表协议</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应用层</td>
+<td>HTTP协议，SMTP协议，FTP协议，DNS，POP3，SNMP，Telnet</td>
+<td>直接为用户的应用进程提供服务</td>
+</tr>
+<tr>
+<td>运输层</td>
+<td>TCP,UDP</td>
+<td>负责向两个主机中进程之间的通信提供服务</td>
+</tr>
+<tr>
+<td>网络层</td>
+<td>IP,ICMP,IGMP,ARP,RARP</td>
+<td>负责主机与主机之间的数据传输</td>
+</tr>
+<tr>
+<td>数据链路层</td>
+<td>SLIP，CSLIP，PPP，ARP，RARP，MTU</td>
+<td>负责相邻结点之间数据帧的传输</td>
+</tr>
+<tr>
+<td>物理层</td>
+<td>ISO2110，IEEE802，IEEE802.2</td>
+<td>对二进制数据进行编码,处理比特流</td>
+</tr>
+</tbody>
+</table>
 
                         </div>
                         
@@ -586,6 +667,10 @@
 <li><a href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8">网络安全</a></li>
 </ul>
 </li>
+<li><a href="#%E4%B8%89%E5%B1%82%E4%BA%A4%E6%8D%A2%E5%92%8C%E4%B8%89%E5%B1%82%E8%B7%AF%E7%94%B1"><strong>三层交换和三层路由</strong></a></li>
+<li><a href="#tcp">TCP</a></li>
+<li><a href="#%E5%AE%89%E5%85%A8">安全</a></li>
+<li><a href="#%E5%8D%8F%E8%AE%AE">协议</a></li>
 </ul>
 
                             </div>
@@ -617,8 +702,8 @@
                                                     <i class="post-share"></i>
                                                     <span>Share:</span>
                                                         <a title="QR Code" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://machangxin.github.io/post/LRG1NqH1T/"><i class="fa fa-qrcode"></i></a>
-                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/LRG1NqH1T/&sharesource=qzone&title=计网五天突击复习&pics=https://machangxin.github.io/images/avatar.png?v=1592573333321&summary="><i class="fa fa-qq"></i></a>
-                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/LRG1NqH1T/&sharesource=weibo&title=计网五天突击复习 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592573333321 "><i class="fa fa-weibo "></i></a>
+                                                        <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://machangxin.github.io/post/LRG1NqH1T/&sharesource=qzone&title=计网五天突击复习&pics=https://machangxin.github.io/images/avatar.png?v=1592745397876&summary="><i class="fa fa-qq"></i></a>
+                                                        <a title="Weibo" target="_blank" href="https://service.weibo.com/share/share.php?url=https://machangxin.github.io/post/LRG1NqH1T/&sharesource=weibo&title=计网五天突击复习 + " - " + &pic="https://machangxin.github.io/images/avatar.png?v=1592745397876 "><i class="fa fa-weibo "></i></a>
                                                         
                                                             <div class="reward ">
                                                                 <div class="reward-button ">&yen;
@@ -762,7 +847,7 @@
                     CheckVersion();
                     
                     var newDate = new Date();
-                    newDate.setTime(1592573333321);
+                    newDate.setTime(1592745397876);
                     console.log(" Blog Update Time: " + newDate.toLocaleDateString());
                     console.log("\n %c \u26a1Theme:Chic Author's Blog:https://blog.itjoker.cn  Write By ITJoker  \n\n", "color: #ffffff; background: rgba(49, 49, 49, 0.85); padding:5px 0;border-radius:5px;");
                 </script>
